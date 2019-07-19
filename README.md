@@ -3,7 +3,34 @@ An app geared towards high net worth individuals offering one of a kind luxury p
 
 With online sales of luxury brands expected to reach $70 billion globally by 2025, transitioning to positioning a luxury brand online is key for growth from 2019 onwards. 
 
----Features List---
+
+## Component Hierarchy
+- Header
+   - Search bar
+       - single product
+   - Shopping cart
+       - items
+       - total
+   - Account
+       - login
+       - register
+- Main
+   - Categories
+       - food
+           - show all
+               - single product
+       - transportation
+           - show all
+               - single product
+       - appliances
+           - show all
+               - single product
+       - pets
+           - show all
+               - single product
+- Footer
+
+## Features List
 
 Ecommerce application that allows the user to search an item by category and item name.
 
@@ -36,7 +63,3 @@ Initially you can search for an item without needing a username and password.
 Add to cart icon on the right side of the header brings you to Cart page.
 
 The cart page shows a list of all the items that have been added to the cart aswell as their quantity, image, brief description and total price of all the items.
-
-
-
-
