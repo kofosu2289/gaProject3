@@ -57,25 +57,31 @@ The cart page shows a list of all the items that have been added to the cart asw
 ![](ERD.png)
 
 ## Wireframes
-- Login View
+  ##### Login View
   ![](wireframes/Login.png)
 
-- Register View
+
+  ##### Register View
   ![](wireframes/Register.png) 
 
-- Landing Page View
+
+  ##### Landing Page View
   ![](wireframes/Landing_Page.png)
 
-- Search Results View
+
+  ##### Search Results View
   ![](wireframes/Search_Results.png)
 
-- Category View
+
+  ##### Category View
   ![](wireframes/Category.png)
 
-- Product View
+
+  ##### Product View
   ![](wireframes/Product.png)
 
-- Cart View
+
+  ##### Cart View
   ![](wireframes/Cart.png)
 
 ## Component Hierarchy
