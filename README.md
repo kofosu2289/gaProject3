@@ -21,33 +21,6 @@
 ##### POST MVP
 Functional Checkout
 
-
-## Component Hierarchy
-- Header
-   - Search bar
-       - single product
-   - Shopping cart
-       - items
-       - total
-   - Account
-       - login
-       - register
-- Main
-   - Categories
-       - food
-           - show all
-               - single product
-       - transportation
-           - show all
-               - single product
-       - appliances
-           - show all
-               - single product
-       - pets
-           - show all
-               - single product
-- Footer
-
 ## Features List
 
 Ecommerce application that allows the user to search an item by category and item name.
@@ -81,3 +54,40 @@ Initially you can search for an item without needing a username and password.
 Add to cart icon on the right side of the header brings you to Cart page.
 
 The cart page shows a list of all the items that have been added to the cart aswell as their quantity, image, brief description and total price of all the items.
+
+## Component Hierarchy
+- Header
+   - Search bar
+       - single product
+   - Shopping cart
+       - items
+       - total
+   - Account
+       - login
+       - register
+- Main
+   - Categories
+       - food
+           - show all
+               - single product
+       - transportation
+           - show all
+               - single product
+       - appliances
+           - show all
+               - single product
+       - pets
+           - show all
+               - single product
+- Footer
+
+## Required Dependencies
+- [Express](https://www.npmjs.com/package/express), for easy server initialization.
+- [Cors](https://www.npmjs.com/package/cors), to expose middleware that can be used to enable CORS with various options.
+- [Body-Parser](https://www.npmjs.com/package/body-parser), to expose middleware that can be used to parse incoming request bodies before your server route handlers.
+- [Axios](https://www.npmjs.com/package/axios), to enable promise - based HTTP requests to our Express server.
+- [Morgan](https://www.npmjs.com/package/morgan), to expose middleware that can be used to log HTTP requests to our Express server.
+- [Nodemon](https://www.npmjs.com/package/nodemon), to allow for automatic restarting of our Express server during development.
+- [PG](https://www.npmjs.com/package/pg), a PostgreSQL client for Node.js.
+- [Sequelize](https://www.npmjs.com/package/sequelize), a promise based Node.js ORM tool for PostgreSQL.
+- [React-Router-DOM](https://www.npmjs.com/package/react-router-dom)
