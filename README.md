@@ -3,6 +3,27 @@ An app geared towards high net worth individuals offering one of a kind luxury p
 
 With online sales of luxury brands expected to reach $70 billion globally by 2025, transitioning to positioning a luxury brand online is key for growth from 2019 onwards. 
 
+## MVP and POST MVP
+
+MVP 
+User can create an account.
+User is able to login and logout.
+User is able to save specific items in their shopping cart.
+User is able to see the total of all the products in cart, with total collected prices.
+User is able to search for an item through the name and or category.
+User is able to view specific product with image and description.
+User is able to increase the amount of a specific item before adding to cart.
+
+
+
+
+POST MVP
+Functional Checkout
+
+
+
+
+
 
 ## Component Hierarchy
 - Header
@@ -34,6 +55,7 @@ With online sales of luxury brands expected to reach $70 billion globally by 202
 
 Ecommerce application that allows the user to search an item by category and item name.
 
+Once the user is logged in they can see the rest of the site.
 
 Top of the navbar will be the name of the actual app.
 
@@ -63,3 +85,5 @@ Initially you can search for an item without needing a username and password.
 Add to cart icon on the right side of the header brings you to Cart page.
 
 The cart page shows a list of all the items that have been added to the cart aswell as their quantity, image, brief description and total price of all the items.
+
+
