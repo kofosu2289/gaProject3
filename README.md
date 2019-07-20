@@ -21,33 +21,6 @@
 ##### POST MVP
 Functional Checkout
 
-
-## Component Hierarchy
-- Header
-   - Search bar
-       - single product
-   - Shopping cart
-       - items
-       - total
-   - Account
-       - login
-       - register
-- Main
-   - Categories
-       - food
-           - show all
-               - single product
-       - transportation
-           - show all
-               - single product
-       - appliances
-           - show all
-               - single product
-       - pets
-           - show all
-               - single product
-- Footer
-
 ## Features List
 
 Ecommerce application that allows the user to search an item by category and item name.
@@ -81,6 +54,32 @@ Initially you can search for an item without needing a username and password.
 Add to cart icon on the right side of the header brings you to Cart page.
 
 The cart page shows a list of all the items that have been added to the cart aswell as their quantity, image, brief description and total price of all the items.
+
+## Component Hierarchy
+- Header
+   - Search bar
+       - single product
+   - Shopping cart
+       - items
+       - total
+   - Account
+       - login
+       - register
+- Main
+   - Categories
+       - food
+           - show all
+               - single product
+       - transportation
+           - show all
+               - single product
+       - appliances
+           - show all
+               - single product
+       - pets
+           - show all
+               - single product
+- Footer
 
 ## Required Dependencies
 - [Express](https://www.npmjs.com/package/express), for easy server initialization.
