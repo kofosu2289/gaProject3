@@ -28,15 +28,13 @@ Ecommerce application that allows the user to search an item by category and ite
 
 Top of the navbar will be the name of the actual app.
 
-In the middle of the nav bar in the APP is a search bar that can either search by and item category and/or item name.
+In the middle of the nav bar in the APP is a search bar that can either search by item name.
 
 User opens up the APP and is able to either login if they already have a user name or register a username and password.
 
-To the left of the search bar is two input boxes where the user puts username and password to login.
+To the left of the search bar is a link to either login with username and password or register with username, password, and email address.
 
 To the right of the search bar is the cart.
-
-There is also a register button next to login.
 
 When register is clicked the user is promped with a form that asks for first name, last name, username, password and email. Followed by confirm.
 
@@ -57,6 +55,34 @@ The cart page shows a list of all the items that have been added to the cart asw
 
 ## Entity Relationship Diagram (ERD)
 ![](ERD.png)
+
+## Wireframes
+  ##### Login View
+  ![](wireframes/Login.png)
+
+
+  ##### Register View
+  ![](wireframes/Register.png) 
+
+
+  ##### Landing Page View
+  ![](wireframes/Landing_Page.png)
+
+
+  ##### Search Results View
+  ![](wireframes/Search_Results.png)
+
+
+  ##### Category View
+  ![](wireframes/Category.png)
+
+
+  ##### Product View
+  ![](wireframes/Product.png)
+
+
+  ##### Cart View
+  ![](wireframes/Cart.png)
 
 ## Component Hierarchy
 - Header
