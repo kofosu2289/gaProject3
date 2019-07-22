@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import RegisterForm from './components/RegisterForm';
+import { registerUser, loginUser } from './services/api-helper';
 
 class App extends React.Component {
   constructor(props) {
@@ -14,7 +15,8 @@ class App extends React.Component {
       loginFormData: {
         username: '',
         password: ''
-      }
+      },
+      currentUser: null,
     }
   }
 
@@ -37,17 +39,27 @@ class App extends React.Component {
       }
     }));
   }
-  // handleRegisterSubmit = async (ev) => {
-  //   ev.preventDefault();
-  //   const user = await createUser(this.state.registerFormData);
-  //   console.log(user)
-  //   this.setState({
-  //     registerForm: {
-  //       name: '',
-  //       password: '',
-  //     },
-  //   });
-  // }
+
+  handleLogin = async () => {
+    const userData = await loginUser(this.state.registerFormData);
+    console.log(userData);
+    this.setState({
+      currentUser: userData.user,
+    });
+    localStorage.setItem('jwt', userData.token);
+  }
+
+  handleRegisterSubmit = async (ev) => {
+    ev.preventDefault();
+    await registerUser(this.state.registerFormData);
+    this.handleLogin();
+    this.setState({
+      registerForm: {
+        name: '',
+        password: '',
+      },
+    });
+  }
 
   render() {
     return (
