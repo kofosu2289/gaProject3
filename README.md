@@ -78,13 +78,13 @@ The cart page shows a list of all the items that have been added to the cart asw
     Request: '/categories', {options}<br/>
     Response: {categories}<br/><br/>
   - List one category by id (GET) <br/>
-    Request: '/categories/:id' <br/>
+    Request: '/categories/:id', {id} <br/>
     Response {category}<br/><br/>
   - Update a category (PUT) <br/>
     Request: '/categories/:id', {name, image_url}<br/>
     Response: {name, image_url}<br/><br/>
   - Delete a category (DELETE)<br/>
-    Request: '/categories/:id'<br/>
+    Request: '/categories/:id', {id}<br/>
     Response: deletion message<br/><br/>
 
   #### Products
@@ -95,13 +95,13 @@ The cart page shows a list of all the items that have been added to the cart asw
     Request: '/products', {options}<br/>
     Response: {products}<br/><br/>
   - List one product by id (GET) <br/>
-    Request: '/products/:id' <br/>
+    Request: '/products/:id', {id} <br/>
     Response {product}<br/><br/>
   - Update a product (PUT) <br/>
     Request: '/products/:id' , {name, description, image_url}<br/>
     Response: {name, description, image_url}<br/><br/>
   - Delete a product (DELETE)<br/>
-    Request: '/products/:id'<br/>
+    Request: '/products/:id', {id}<br/>
     Response: deletion message<br/><br/>
 
 
