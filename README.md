@@ -54,7 +54,7 @@ At the bottom of each product page there will be similar/ related items to the c
 
 Add to cart icon on the right side of the header brings you to Cart page.
 
-The cart page shows a list of all the items that have been added to the cart aswell as their quantity, image, brief description and total price of all the items.
+The cart page shows a list of all the items that have been added to the cart as well as their quantity, image, brief description and total price of all the items.
 
 ### Entity Relationship Diagram (ERD)
 ![](ERD.png)
