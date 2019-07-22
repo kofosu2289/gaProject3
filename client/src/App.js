@@ -7,11 +7,47 @@ class App extends React.Component {
     super(props);
     this.state = {
       registerFormData: {
-        name: '',
+        username: '',
+        email: '',
         password: '',
       },
+      loginFormData: {
+        username: '',
+        password: ''
+      }
     }
   }
+
+  handleRegisterChange = (ev) => {
+    const { name, value } = ev.target;
+    this.setState(prevState => ({
+      registerFormData: {
+        ...prevState.registerFormData,
+        [name]: value
+      }
+    }));
+  }
+
+  handleLoginChange = (ev) => {
+    const { name, value } = ev.target;
+    this.setState(prevState => ({
+      loginFormData: {
+        ...prevState.loginFormData,
+        [name]: value
+      }
+    }));
+  }
+  // handleRegisterSubmit = async (ev) => {
+  //   ev.preventDefault();
+  //   const user = await createUser(this.state.registerFormData);
+  //   console.log(user)
+  //   this.setState({
+  //     registerForm: {
+  //       name: '',
+  //       password: '',
+  //     },
+  //   });
+  // }
 
   render() {
     return (
@@ -19,8 +55,10 @@ class App extends React.Component {
         <h1>Make it rain!</h1>
         <RegisterForm 
             registerForm={this.state.registerFormData}
+            loginForm={this.state.loginFormData}
             handleSubmit={this.handleRegisterSubmit}
-            handleChange={this.handleRegisterFormChange}
+            handleRegisterChange={this.handleRegisterChange}
+            handleLoginChange={this.handleLoginChange}
           />
       </div>
     );
