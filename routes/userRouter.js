@@ -28,6 +28,7 @@ userRouter.post('/register', async (req, res) => {
 
     const user = await User.create({
       username: req.body.username,
+      email: req.body.email,
       pw_hash: hash,
     });
 
