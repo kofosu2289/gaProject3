@@ -21,7 +21,7 @@ const newCategory = async (name, url) => {
 };
 
 const main = async () => {
-  // newProduct(`24K Gold Mens's Racing Bike`, `Made with an aluminum frame, this bike boasts a meticulosly applied layer of 24K deep Gold from the handlebars to every ridge of the gear chain, with a soft suede saddle and SR4 Tyres. Not only does the bicycle resemble a striking work of modern art to look at, but it is even more beautiful in motion, as sunlight bounces off the spinning spokes`, `https://s3.scoopwhoop.com/anj/sjsj/956b9665-a2ab-4d1d-a40e-d5eea819dcbf.jpg`, 327970);
+  newProduct(`24K Gold Mens's Racing Bike`, `Made with an aluminum frame, this bike boasts a meticulosly applied layer of 24K deep Gold from the handlebars to every ridge of the gear chain, with a soft suede saddle and SR4 Tyres. Not only does the bicycle resemble a striking work of modern art to look at, but it is even more beautiful in motion, as sunlight bounces off the spinning spokes`, `https://s3.scoopwhoop.com/anj/sjsj/956b9665-a2ab-4d1d-a40e-d5eea819dcbf.jpg`, 327970);
   // newCategory('Transportation', `http://www.gulfstream.com/images/uploads/hp_sub_features/paris_preview.jpg`);
 };
 
