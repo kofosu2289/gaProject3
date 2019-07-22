@@ -1,4 +1,13 @@
-## Project Description
+### Table of Contents
+  - [Project Description](#project-description)
+  - [Features List](#features-list)
+  - [Entity Relationship Diagram (ERD)](#entity-relationship-diagram-erd)
+  - [API Endpoint Documentation](#api-endpoint-documentation)
+  - [Wireframes](#wireframes)
+  - [Component Hierarchy](#component-hierarchy)
+  - [Required Dependencies](#required-dependencies)
+
+### Project Description
 - An app geared towards high net worth individuals offering one of a kind luxury products, we will create an ecommerce platform that will allow a certain tier of the population to acquire the goods they need to showcase their superiority to the general population. Users will be able to search for and buy any product their minds can conceive of, from gold-leaf toilet paper (highly impractical) to a miniature giraffe (the definition of opulence, if I do say so myself), as well as view previously unheard - of ultra - lux items (read: saved from the pit of decadence that is the dark web), because we all know poor people's rules don't apply here...
   
 ##### Expected Challenges
@@ -21,7 +30,7 @@
 ##### POST MVP
 Functional Checkout
 
-## Features List
+### Features List
 
 E-commerce application that allows the user to search an item by category and item name.
 
@@ -47,10 +56,10 @@ Add to cart icon on the right side of the header brings you to Cart page.
 
 The cart page shows a list of all the items that have been added to the cart aswell as their quantity, image, brief description and total price of all the items.
 
-## Entity Relationship Diagram (ERD)
+### Entity Relationship Diagram (ERD)
 ![](ERD.png)
 
-## API Endpoint Documentation
+### API Endpoint Documentation
 
   #### Users 
   -  login a user (POST) <br/>
@@ -96,7 +105,8 @@ The cart page shows a list of all the items that have been added to the cart asw
     Response: deletion message<br/><br/>
 
 
-## Wireframes
+### Wireframes
+
   ##### Login View
   ![](wireframes/Login.png)
 
@@ -133,43 +143,43 @@ The cart page shows a list of all the items that have been added to the cart asw
   ##### Cart View
   ![](wireframes/Cart.png)
 
-## Component Hierarchy
+### Component Hierarchy
 
-##### Login View
+##### Login
   ![](component_hierarchies/Login_CH.png)
 
-##### Register View
+##### Register
   ![](component_hierarchies/Register_CH.png)
 
-##### Home View
+##### Home
   ![](component_hierarchies/Home_CH.png)
 
-##### Search Results View
+##### Search Results
 ![](component_hierarchies/Search_Results_CH.png)
 
-##### Category View
+##### Category
   ![](component_hierarchies/Category_CH.png)
 
-##### Create Category View
+##### Create Category
   ![](component_hierarchies/Create_Category_CH.png)
 
-##### Edit Category View
+##### Edit Category
   ![](component_hierarchies/Edit_Category_CH.png)
 
-##### Product View
+##### Product
   ![](component_hierarchies/Product_CH.png)
 
-##### Create Product View
+##### Create Product
   ![](component_hierarchies/Create_Product_CH.png)
 
-##### Edit Product View
+##### Edit Product
   ![](component_hierarchies/Edit_Product_CH.png)
 
-##### Cart View
+##### Cart
   ![](component_hierarchies/Cart_CH.png)
  
 
-## Required Dependencies
+### Required Dependencies
 - [Express](https://www.npmjs.com/package/express), for easy server initialization.
 - [Cors](https://www.npmjs.com/package/cors), to expose middleware that can be used to enable CORS with various options.
 - [Body-Parser](https://www.npmjs.com/package/body-parser), to expose middleware that can be used to parse incoming request bodies before your server route handlers.
