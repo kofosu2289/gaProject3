@@ -23,31 +23,25 @@ Functional Checkout
 
 ## Features List
 
-Ecommerce application that allows the user to search an item by category and item name.
-
+E-commerce application that allows the user to search an item by category and item name.
 
 Top of the navbar will be the name of the actual app.
 
-In the middle of the nav bar in the APP is a search bar that can either search by item name.
+In the middle of the nav bar in the app is a search bar that can either search by item name.
 
-User opens up the APP and is able to either login if they already have a user name or register a username and password.
+User opens up the app and is able to either login if they already have a user name or register a username and password.
 
-To the left of the search bar is a link to either login with username and password or register with username, password, and email address.
+To the left of the search bar is a link to logout accompanied by a greeting for the user.
 
 To the right of the search bar is the cart.
 
-When register is clicked the user is promped with a form that asks for first name, last name, username, password and email. Followed by confirm.
-
-Once the user has a username and password they can login.
+When the user successfully registers or logs in, the user is redirected to the home page
 
 When logged in the user can search for an item.
 
-The item that is searched is pulled up and rendered unto the page with a brief description aswell as a price and image for said product. Along with a quantity number that can be changed and a add to cart button.
+The item that is searched for is pulled up and rendered unto the page with a brief description aswell as a price and image for said product. Along with a quantity number that can be changed and an add to cart button.
 
-In the product page
-At the bottom of the page there will be similar/ related items to the one thats searched aswell as their name and price.
-
-Initially you can search for an item without needing a username and password. 
+At the bottom of each product page there will be similar/ related items to the currently viewed product.
 
 Add to cart icon on the right side of the header brings you to Cart page.
 
@@ -140,30 +134,6 @@ The cart page shows a list of all the items that have been added to the cart asw
   ![](wireframes/Cart.png)
 
 ## Component Hierarchy
-<!-- - Header
-   - Search bar
-       - single product
-   - Shopping cart
-       - items
-       - total
-   - Account
-       - login
-       - register
-- Main
-   - Categories
-       - food
-           - show all
-               - single product
-       - transportation
-           - show all
-               - single product
-       - appliances
-           - show all
-               - single product
-       - pets
-           - show all
-               - single product
-- Footer -->
 
 ##### Login View
   ![](component_hierarchies/Login_CH.png)
