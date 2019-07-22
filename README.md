@@ -188,5 +188,5 @@ The cart page shows a list of all the items that have been added to the cart asw
 - [Nodemon](https://www.npmjs.com/package/nodemon), to allow for automatic restarting of our Express server during development.
 - [PG](https://www.npmjs.com/package/pg), a PostgreSQL client for Node.js.
 - [Sequelize](https://www.npmjs.com/package/sequelize), a promise based Node.js ORM tool for PostgreSQL.
-- [React-Router-DOM](https://www.npmjs.com/package/react-router-dom).
+- [React-Router-DOM](https://www.npmjs.com/package/react-router-dom)
 
