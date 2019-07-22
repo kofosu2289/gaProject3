@@ -1,7 +1,7 @@
 const { sequelize } = require('./models');
 
 const main = async () => {
-  await sequelize.sync({ force: true })
+  await sequelize.sync({ force: true });
   process.exit();
 };
 
