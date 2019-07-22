@@ -56,6 +56,52 @@ The cart page shows a list of all the items that have been added to the cart asw
 ## Entity Relationship Diagram (ERD)
 ![](ERD.png)
 
+## API Endpoint Documentation
+
+  #### Users 
+  -  login a user (POST) <br/>
+   request: '/login', {username, password} <br/>
+   response: {{userinfo}, token }
+
+  - register a user (POST)<br/>
+    request: '/register', {username, password, email} <br/>
+    response: {{userinfo}, token}
+
+  #### Categories
+  - Create a category (POST)<br/>
+    Request: '/categories', {name, image_url}<br/>
+    Response: {name, image_url} <br/><br/>
+  - List all categories (GET)<br/>
+    Request: '/categories', {options}<br/>
+    Response: {categories}<br/><br/>
+  - List one category by id (GET) <br/>
+    Request: '/categories/:id' <br/>
+    Response {category}<br/><br/>
+  - Update a category (PUT) <br/>
+    Request: '/categories/:id', {name, image_url}<br/>
+    Response: {name, image_url}<br/><br/>
+  - Delete a category (DELETE)<br/>
+    Request: '/categories/:id'<br/>
+    Response: deletion message<br/><br/>
+
+  #### Products
+  - Create a product (POST)<br/>
+    Request: '/products' , {name, description, image_url}<br/>
+    Response: {name, description, image_url} <br/><br/>
+  - List all products (GET)<br/>
+    Request: '/products', {options}<br/>
+    Response: {products}<br/><br/>
+  - List one product by id (GET) <br/>
+    Request: '/products/:id' <br/>
+    Response {product}<br/><br/>
+  - Update a product (PUT) <br/>
+    Request: '/products/:id' , {name, description, image_url}<br/>
+    Response: {name, description, image_url}<br/><br/>
+  - Delete a product (DELETE)<br/>
+    Request: '/products/:id'<br/>
+    Response: deletion message<br/><br/>
+
+
 ## Wireframes
   ##### Login View
   ![](wireframes/Login.png)
@@ -65,27 +111,36 @@ The cart page shows a list of all the items that have been added to the cart asw
   ![](wireframes/Register.png) 
 
 
-  ##### Landing Page View
-  ![](wireframes/Landing_Page.png)
-
+  ##### Home View
+  ![](wireframes/Home.png)
 
   ##### Search Results View
   ![](wireframes/Search_Results.png)
 
-
   ##### Category View
   ![](wireframes/Category.png)
 
+  ##### Create Category View
+  ![](wireframes/Create_Category.png)
+
+  ##### Edit Category View
+  ![](wireframes/Edit_Category.png)
 
   ##### Product View
   ![](wireframes/Product.png)
+
+  ##### Create Product View
+  ![](wireframes/Create_Product.png)
+
+  ##### Edit Product View
+  ![](wireframes/Edit_Product.png)
 
 
   ##### Cart View
   ![](wireframes/Cart.png)
 
 ## Component Hierarchy
-- Header
+<!-- - Header
    - Search bar
        - single product
    - Shopping cart
@@ -108,7 +163,41 @@ The cart page shows a list of all the items that have been added to the cart asw
        - pets
            - show all
                - single product
-- Footer
+- Footer -->
+
+##### Login View
+  ![](component_hierarchies/Login_CH.png)
+
+##### Register View
+  ![](component_hierarchies/Register_CH.png)
+
+##### Home View
+  ![](component_hierarchies/Home_CH.png)
+
+##### Search Results View
+![](component_hierarchies/Search_Results_CH.png)
+
+##### Category View
+  ![](component_hierarchies/Category_CH.png)
+
+##### Create Category View
+  ![](component_hierarchies/Create_Category_CH.png)
+
+##### Edit Category View
+  ![](component_hierarchies/Edit_Category_CH.png)
+
+##### Product View
+  ![](component_hierarchies/Product_CH.png)
+
+##### Create Product View
+  ![](component_hierarchies/Create_Product_CH.png)
+
+##### Edit Product View
+  ![](component_hierarchies/Edit_Product_CH.png)
+
+##### Cart View
+  ![](component_hierarchies/Cart_CH.png)
+ 
 
 ## Required Dependencies
 - [Express](https://www.npmjs.com/package/express), for easy server initialization.
