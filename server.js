@@ -5,6 +5,7 @@ const cors = require('cors');
 
 const PORT = process.env.PORT || 3001;
 
+const userRouter = require('./routes/userRouter');
 const productRouter = require('./routes/productRouter');
 const categoryRouter = require('./routes/categoryRouter');
 
@@ -12,6 +13,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use(logger('dev'));
+app.use('/auth', userRouter);
 app.use('/products', productRouter);
 app.use('/categories', categoryRouter);
 

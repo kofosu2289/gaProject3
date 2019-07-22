@@ -19,8 +19,20 @@ const checkPassword = async (password, hash) => {
   return validate;
 };
 
+const restrict = (req, res, next) => {
+  try {
+    const token = req.headers.authorization.split(' ')[1];
+    const data = jwt.verify(token, SECRET);
+    res.locals.user = data;
+    next();
+  } catch (e) {
+    res.status(403).send('Unauthorized');
+  }
+};
+
 module.exports = {
   hashPassword,
   checkPassword,
   genToken,
+  restrict,
 };
