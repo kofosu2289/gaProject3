@@ -1,4 +1,7 @@
 import React from 'react';
+import {Route,Link} from 'react-router-dom';
+import {withRouter} from 'react-router-dom'
+
 class Account extends React.Component {
   constructor(props) {
     super(props);
@@ -11,7 +14,14 @@ class Account extends React.Component {
     return (
       <div className="formz">
         <button onClick={() => { this.setState({ login: false }) }}>Register</button>
-        <button onClick={() => this.setState({ login: true })}>Login</button>
+        <button onClick=
+        {() => {
+          this.setState({ login: true })
+
+        }
+          
+        }
+        >Login</button>
 
         {this.state.login === false &&
           <div className="reg">
@@ -79,5 +89,5 @@ class Account extends React.Component {
   }
 }
 
-export default Account;
+export default withRouter(Account);
 

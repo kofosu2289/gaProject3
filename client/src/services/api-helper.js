@@ -13,3 +13,8 @@ export const registerUser = async (registerData) => {
   const resp = await api.post(`/auth/register`, registerData);
   return resp.data;
 }
+
+export const fetchCategories = async() => {
+  const resp = await api.get('/categories');
+  return resp.data;
+}
