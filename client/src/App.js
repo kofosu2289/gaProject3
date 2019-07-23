@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import RegisterForm from './components/RegisterForm';
 import { registerUser, loginUser } from './services/api-helper';
+import { withRouter } from 'react-router-dom';
 
 class App extends React.Component {
   constructor(props) {
@@ -83,8 +84,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-      <h1>Make it rain!</h1>
-        <RegisterForm 
+        <h1>Make it rain!</h1>
+        <RegisterForm
           handleLoginSubmit={this.handleLoginSubmit}
           registerForm={this.state.registerFormData}
           loginForm={this.state.loginFormData}

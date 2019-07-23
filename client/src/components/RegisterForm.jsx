@@ -1,4 +1,7 @@
 import React from 'react';
+import { withRouter } from "react-router-dom";
+
+
 class Account extends React.Component {
   constructor(props) {
     super(props);
@@ -79,5 +82,5 @@ class Account extends React.Component {
   }
 }
 
-export default Account;
+export default withRouter(Account);
 

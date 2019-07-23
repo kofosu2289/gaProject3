@@ -51,7 +51,7 @@ userRouter.post('/login', async (req, res) => {
       const respData = authResponse(user);
       res.json({ ...respData });
     } else {
-      res.status(401).send('Invalid credentials');
+      res.status(401).json({ err: 'Invalid credentials' });
     }
   } catch (e) {
     res.status(500).send(e.message);
