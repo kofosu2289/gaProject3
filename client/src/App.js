@@ -83,7 +83,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1>Make it rain!</h1>
+      <h1>Make it rain!</h1>
         <RegisterForm 
           handleLoginSubmit={this.handleLoginSubmit}
           registerForm={this.state.registerFormData}
