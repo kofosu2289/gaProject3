@@ -1,7 +1,9 @@
 import React from 'react';
-import {fetchCategories} from '../services/api-helper'
-import{withRouter} from 'react-router-dom';
+
+import {withRouter} from 'react-router-dom';
 import axios from 'axios';
+import {Link, Route} from 'react-router-dom';
+import Products from './Products';
   
 class CreateCategory extends React.Component {
   constructor(props){
@@ -11,18 +13,15 @@ class CreateCategory extends React.Component {
     }
   }
 
-  componentDidMount = async () => {
-    const categories = await fetchCategories();
-    this.setState({
-      categories: categories.categories
-    })
-  }
+
   // componentDidMount = async() => {
   //   const cats = await fetchCategories();
   //   console.log(cats.categories);
   // }
 
+
 render(){
+
   return (
     <div className="createCat">
       <input id="search"
@@ -30,13 +29,19 @@ render(){
         name="search"
         placeholder="SEARCH">
       </input>
-
-      {this.state.categories.map((e)=> (
-        <div key={e.id} className="print_cats">
-          <p>{e.name}</p>
-          <img src={e.image_url} />
+      
+      <div className="cat-div">
+      {this.props.categories.map((category)=> (
+        <div key={category.id} className="print_cats" 
+        onClick={()=>{
+          this.props.history.push(`/products/${category.id}`)
+        }}
+        >
+          <p>{category.name}</p>
+          <img src={category.image_url} alt text="cat_img"/>
         </div>
       ))}
+      </div>
 
       <h1>ADD CATEGORY</h1>
       <input id="catName"
