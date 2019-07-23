@@ -26,6 +26,14 @@ const Product = sequelize.define('product', {
   price: Sequelize.INTEGER,
 });
 
+const Transaction = sequelize.define('transaction', {
+  trans_id: Sequelize.STRING,
+  user_id: Sequelize.INTEGER,
+  product_id: Sequelize.INTEGER,
+  quantity: Sequelize.INTEGER,
+  price: Sequelize.INTEGER,
+});
+
 
 // JOIN TABLE
 Product.belongsTo(User, { through: 'shopping_cart' });
@@ -41,4 +49,5 @@ module.exports = {
   User,
   Category,
   Product,
+  Transaction,
 };
