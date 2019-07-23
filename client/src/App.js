@@ -64,14 +64,14 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1>Make it rain!</h1>
+      <h1>Make it rain!</h1>
         <RegisterForm 
             registerForm={this.state.registerFormData}
             loginForm={this.state.loginFormData}
             handleSubmit={this.handleRegisterSubmit}
             handleRegisterChange={this.handleRegisterChange}
             handleLoginChange={this.handleLoginChange}
-          />
+        />
       </div>
     );
   }
