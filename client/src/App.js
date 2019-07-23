@@ -46,7 +46,9 @@ class App extends React.Component {
     this.setState({
       currentUser: userData.user,
     });
+    const auth = 'Bearer ' + userData.token;
     localStorage.setItem('jwt', userData.token);
+    localStorage.setItem('jwtToken', auth);
   }
 
   handleRegisterSubmit = async (ev) => {
@@ -54,11 +56,28 @@ class App extends React.Component {
     await registerUser(this.state.registerFormData);
     this.handleLogin();
     this.setState({
-      registerForm: {
-        name: '',
+      registerFormData: {
+        username: '',
+        email: '',
         password: '',
       },
     });
+  }
+
+  handleLoginSubmit = async (ev) => {
+    ev.preventDefault();
+    const userData = await loginUser(this.state.loginFormData);
+    this.setState({
+      currentUser: userData.user,
+      loginFormData: {
+        username: '',
+        password: ''
+      }
+    })
+    const auth = 'Bearer ' + userData.token;
+    localStorage.setItem('jwt', userData.token);
+    localStorage.setItem('jwtToken', auth);
+
   }
 
   render() {
@@ -66,11 +85,12 @@ class App extends React.Component {
       <div className="App">
       <h1>Make it rain!</h1>
         <RegisterForm 
-            registerForm={this.state.registerFormData}
-            loginForm={this.state.loginFormData}
-            handleSubmit={this.handleRegisterSubmit}
-            handleRegisterChange={this.handleRegisterChange}
-            handleLoginChange={this.handleLoginChange}
+          handleLoginSubmit={this.handleLoginSubmit}
+          registerForm={this.state.registerFormData}
+          loginForm={this.state.loginFormData}
+          handleSubmit={this.handleRegisterSubmit}
+          handleRegisterChange={this.handleRegisterChange}
+          handleLoginChange={this.handleLoginChange}
         />
       </div>
     );
