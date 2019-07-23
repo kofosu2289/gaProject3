@@ -2,7 +2,8 @@ import React from 'react';
 import axios from 'axios';
 
 
-export default class ProductCreate extends React.Component {
+
+export default class ProductEdit extends React.Component {
   constructor() {
     super()
     this.state = {
@@ -18,7 +19,7 @@ export default class ProductCreate extends React.Component {
   }
 
   fetchProducts = async () => {
-    const resp = await axios.get('http://localhost:3000/products');
+    const resp = await axios.get('http://localhost:3001/products');
     this.setState({
       product: resp.data.product,
     });
@@ -29,6 +30,7 @@ export default class ProductCreate extends React.Component {
     ev.preventDefault();
     this.create();
   }
+
 
 
   create = async () => {
@@ -53,9 +55,9 @@ export default class ProductCreate extends React.Component {
         formData: { name, description, image_url },
         editingId: Id
       };
+
     });
   }
-
   delete = async (id) => {
     const res = await axios.delete(`http://localhost:3000/products/${id}`)
     this.setState(prevState => ({
@@ -100,12 +102,27 @@ export default class ProductCreate extends React.Component {
     this.fetchProducts();
   }
 
+  update = async () => {
+    const data = this.state.formData;
+    const resp = await axios.put('http://localhost:3000/products/' + this.state.editingId, data);
+    const product = resp.data;
+    this.setState(prevState => ({
+      products: prevState.products.map(t => (t.id === product.id ? product : t)),
+      formData: {
+        name: '',
+        description: '',
+        image_url: '',
+      },
+      editingId: null,
+    }));
+  }
+
+
   render() {
     console.log(this.state);
-
     return (
       <div>
-        <h3>ADD PRODUCT</h3>
+        <h3>EDIT PRODUCT</h3>
         <form>
           <input
             type="text"
@@ -127,13 +144,9 @@ export default class ProductCreate extends React.Component {
             placeholder="PRODUCT IMAGE URL"
             onChange={this.handleChange}
             value={this.state.formData} />
-          />
-          </form>
+        </form>
+        <button>Submit</button>
         )}
-        {this.state.products.map(product => (
-          <button> onClick={() => this.edit(product.id)}>Edit Product</button>
-          </div>
-    ))}
       </div>
     )
   }
