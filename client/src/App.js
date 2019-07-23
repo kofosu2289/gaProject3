@@ -80,27 +80,18 @@ class App extends React.Component {
 
   }
 
- 
-
-  switchFunction = () => {
-    this.setState({
-      login: !this.state.login
-    })
-  }
-
   render() {
     return (
       <div className="App">
         <h1>Make it rain!</h1>
         <RegisterForm 
-            handleSwitch={this.switchFunction}
-            handleLoginSubmit={this.handleLoginSubmit}
-            registerForm={this.state.registerFormData}
-            loginForm={this.state.loginFormData}
-            handleSubmit={this.handleRegisterSubmit}
-            handleRegisterChange={this.handleRegisterChange}
-            handleLoginChange={this.handleLoginChange}
-          />
+          handleLoginSubmit={this.handleLoginSubmit}
+          registerForm={this.state.registerFormData}
+          loginForm={this.state.loginFormData}
+          handleSubmit={this.handleRegisterSubmit}
+          handleRegisterChange={this.handleRegisterChange}
+          handleLoginChange={this.handleLoginChange}
+        />
       </div>
     );
   }

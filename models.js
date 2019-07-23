@@ -30,6 +30,8 @@ const Transaction = sequelize.define('transaction', {
   trans_id: Sequelize.STRING,
   user_id: Sequelize.INTEGER,
   product_id: Sequelize.INTEGER,
+  quantity: Sequelize.INTEGER,
+  price: Sequelize.INTEGER,
 });
 
 
