@@ -1,18 +1,17 @@
 import React from 'react';
-
-class Account extends React.Component{
-  constructor(props){
+class Account extends React.Component {
+  constructor(props) {
     super(props);
-    this.state={
+    this.state = {
       login: false
     }
-}
+  }
 
-  render(){
-    return(
+  render() {
+    return (
       <div className="formz">
-        <button onClick={()=>{this.setState({login: false})}}>Register</button>
-        <button onClick={()=> this.setState({login: true })}>Login</button>
+        <button onClick={() => { this.setState({ login: false }) }}>Register</button>
+        <button onClick={() => this.setState({ login: true })}>Login</button>
 
         {this.state.login === false &&
           <div className="reg">
@@ -26,10 +25,10 @@ class Account extends React.Component{
                 value={this.props.registerForm.username}
                 id="username"
                 onChange={this.props.handleRegisterChange} />
-              
+
               <label
                 htmlFor="email">Email</label>
-              <input 
+              <input
                 type="text"
                 name="email"
                 value={this.props.registerForm.email}
@@ -44,18 +43,18 @@ class Account extends React.Component{
                 id="password"
                 onChange={this.props.handleRegisterChange} />
               <input type="submit" value="Sign Up!" />
-            </form> 
+            </form>
           </div>
         }
 
-        {this.state.login===true &&
+        {this.state.login === true &&
           <div className="login">
             <h3>Login</h3>
-    
+
             <form className="login-form">
-            <label
+              <label
                 htmlFor="name">Username</label>
-              <input 
+              <input
                 type="text"
                 name="username"
                 value={this.props.loginForm.username}
@@ -64,7 +63,7 @@ class Account extends React.Component{
               />
               <label
                 htmlFor="name">Password</label>
-              <input 
+              <input
                 type="password"
                 name="password"
                 value={this.props.loginForm.password}
@@ -75,7 +74,6 @@ class Account extends React.Component{
             </form>
           </div>
         }
-
       </div>
     )
   }
