@@ -102,8 +102,17 @@ class App extends React.Component {
         } />
         <Link to="/home"></Link>
         <Route path="/home" render={() => <CreateCategory />} />
-        //For Testing
-        <ProductCreate />
+        {/* //For Testing
+        <ProductCreate
+          categories={[{
+            id: 1,
+            name: "horses"
+          }, {
+            id: 2,
+            name: "kitchen sinks"
+          }
+          ]}
+        /> */}
       </div>
     );
   }

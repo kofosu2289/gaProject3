@@ -14,6 +14,7 @@ export default class ProductCreate extends React.Component {
         description: '',
         image_url: '',
         price: '',
+        category: ''
       },
     }
   }
@@ -23,7 +24,7 @@ export default class ProductCreate extends React.Component {
     this.setState({
       products: resp.data.products,
     });
-    debugger;
+    // debugger;
   }
 
 
@@ -35,7 +36,9 @@ export default class ProductCreate extends React.Component {
 
   create = async () => {
     const data = this.state.formData;
-    const resp = await axios.post('http://localhost:3001/products', data);
+    const category = this.props.categories.find(cat => cat.id === data.category);
+
+    const resp = await axios.post(`http://localhost:3001/categories/${category.id}/products`, data);
     const products = resp.data.product;
     this.setState(prevState => ({
       products: [...prevState.products, products],
@@ -47,6 +50,7 @@ export default class ProductCreate extends React.Component {
       },
       isEditing: false,
     }));
+
   }
 
   edit = (id) => {
@@ -86,6 +90,7 @@ export default class ProductCreate extends React.Component {
   }
 
   handleChange = (ev) => {
+    // debugger;
     const { target: { name, value } } = ev;
     this.setState(prevState => ({
       formData: {
@@ -173,6 +178,15 @@ export default class ProductCreate extends React.Component {
               placeholder="PRODUCT PRICE"
               onChange={this.handleChange}
               value={this.state.formData.price} />
+            <select name="category" onChange={this.handleChange}>
+              <option> -- </option>
+              {
+                this.props.categories.map((cat) => (
+                  <option key={cat.id} value={cat.id}>{cat.name}</option>
+                ))
+              }
+            </select>
+
             <input type="submit" value=" CREATE PRODUCT" />
           </form>
         )}
