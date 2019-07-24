@@ -8,7 +8,7 @@ export default function Nav() {
     <h2>WELCOME, USER</h2>
     <div className="app-title">
       <button id="logout">LOGOUT</button>
-      <img id="cart-logo" src="http://oi66.tinypic.com/311wbbd.jpg" alt="cart" />
+      <img id="cart-logo" src="http://i68.tinypic.com/28iwxnc.png" alt="cart" />
     </div>
     <div className="searchbar">
       <input id="search"

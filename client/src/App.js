@@ -111,6 +111,7 @@ class App extends React.Component {
               handleSubmit={this.handleRegisterSubmit}
               handleRegisterChange={this.handleRegisterChange}
               handleLoginChange={this.handleLoginChange}
+              currentUser={this.state.currentUser}
             />
           } />
           <Route exact path="/home" render={() => (

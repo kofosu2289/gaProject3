@@ -20,6 +20,7 @@ class EditCategory extends React.Component {
     this.setState({
       categories: resp.data.categories,
     });
+    console.log(this.state.categories);
   }
 
   handleCreateSubmit = (ev) => {
@@ -147,3 +148,4 @@ export default EditCategory;
                 
                 
                 
+ 
