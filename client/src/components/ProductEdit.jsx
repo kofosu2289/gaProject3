@@ -2,7 +2,6 @@ import React from 'react';
 import axios from 'axios';
 
 
-
 export default class ProductEdit extends React.Component {
   constructor() {
     super()

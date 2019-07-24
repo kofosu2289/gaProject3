@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import CreateCategory from './CreateCategory';
 
 
 export default class ProductCreate extends React.Component {
@@ -12,16 +13,17 @@ export default class ProductCreate extends React.Component {
         name: '',
         description: '',
         image_url: '',
-        price: null,
+        price: '',
       },
     }
   }
 
   fetchProducts = async () => {
-    const resp = await axios.get('http://localhost:3000/products');
+    const resp = await axios.get('http://localhost:3001/products');
     this.setState({
-      product: resp.data.product,
+      products: resp.data.products,
     });
+    debugger;
   }
 
 
@@ -33,7 +35,7 @@ export default class ProductCreate extends React.Component {
 
   create = async () => {
     const data = this.state.formData;
-    const resp = await axios.post('http://localhost:3000/products', data)
+    const resp = await axios.post('http://localhost:3001/products', data);
     const products = resp.data.product;
     this.setState(prevState => ({
       products: [...prevState.products, products],
@@ -41,6 +43,7 @@ export default class ProductCreate extends React.Component {
         name: '',
         description: '',
         image_url: '',
+        price: '',
       },
       isEditing: false,
     }));
@@ -48,16 +51,16 @@ export default class ProductCreate extends React.Component {
 
   edit = (id) => {
     this.setState(prevState => {
-      const { name, description, image_url } = prevState.products.find(product => product.id === id);
+      const { name, description, image_url, price } = prevState.products.find(product => product.id === id);
       return {
-        formData: { name, description, image_url },
-        editingId: Id
+        formData: { name, description, image_url, price },
+        editingId: id
       };
     });
   }
 
   delete = async (id) => {
-    const res = await axios.delete(`http://localhost:3000/products/${id}`)
+    const res = await axios.delete(`http://localhost:3001/products/${id}`)
     this.setState(prevState => ({
       products: prevState.products.filter((product) => (
         product.id !== parseInt(id)
@@ -68,7 +71,7 @@ export default class ProductCreate extends React.Component {
 
   update = async () => {
     const data = this.state.formData;
-    const resp = await axios.put('http://localhost:3000/products/' + this.state.editingId, data);
+    const resp = await axios.put('http://localhost:3001/products/' + this.state.editingId, data);
     const product = resp.data;
     this.setState(prevState => ({
       products: prevState.products.map(t => (t.id === product.id ? product : t)),
@@ -76,6 +79,7 @@ export default class ProductCreate extends React.Component {
         name: '',
         description: '',
         image_url: '',
+        price: '',
       },
       editingId: null,
     }));
@@ -83,7 +87,7 @@ export default class ProductCreate extends React.Component {
 
   handleChange = (ev) => {
     const { target: { name, value } } = ev;
-    this.setState(prevState = ({
+    this.setState(prevState => ({
       formData: {
         ...prevState.formData,
         [name]: value,
@@ -94,47 +98,99 @@ export default class ProductCreate extends React.Component {
   handleUpdateSubmit = (ev) => {
     ev.preventDefault();
     this.update();
-
   }
+
   componentDidMount() {
     this.fetchProducts();
+    console.log(this.state.products)
   }
 
   render() {
     console.log(this.state);
-
     return (
       <div>
         <h3>ADD PRODUCT</h3>
-        <form>
-          <input
-            type="text"
-            name="name"
-            placeholder="PRODUCT NAME"
-            onChange={this.handleChange}
-            value={this.state.formData} />
+        {this.state.editingId !== null && (
+          <form onSubmit={this.handleUpdateSubmit}>
+            <input
+              type="text"
+              name="name"
+              placeholder="PRODUCT NAME"
+              onChange={this.handleChange}
+              value={this.state.formData.name} />
 
-          <input
-            type="text"
-            name="description"
-            placeholder="PRODUCT DESCRIPTION"
-            onChange={this.handleChange}
-            value={this.state.formData} />
 
-          <input
-            type="text"
-            name="image_url"
-            placeholder="PRODUCT IMAGE URL"
-            onChange={this.handleChange}
-            value={this.state.formData} />
-          />
+            <input
+              type="text"
+              name="description"
+              placeholder="PRODUCT DESCRIPTION"
+              onChange={this.handleChange}
+              value={this.state.formData.description} />
+
+            <input
+              type="text"
+              name="image_url"
+              placeholder="PRODUCT IMAGE URL"
+              onChange={this.handleChange}
+              value={this.state.formData.image_url} />
+
+            <input
+              type="text"
+              name="price"
+              placeholder="PRODUCT PRICE"
+              onChange={this.handleChange}
+              value={this.state.formData.price} />
+            <input type="submit" value=" Update Category" />
+          </form>
+        )}
+        {this.state.editingId === null && (
+          <form onSubmit={this.handleCreateSubmit}>
+            <input
+              type="text"
+              name="name"
+              placeholder="PRODUCT NAME"
+              onChange={this.handleChange}
+              value={this.state.formData.name} />
+
+
+            <input
+              type="text"
+              name="description"
+              placeholder="PRODUCT DESCRIPTION"
+              onChange={this.handleChange}
+              value={this.state.formData.description} />
+
+            <input
+              type="text"
+              name="image_url"
+              placeholder="PRODUCT IMAGE URL"
+              onChange={this.handleChange}
+              value={this.state.formData.image_url} />
+
+            <input
+              type="text"
+              name="price"
+              placeholder="PRODUCT PRICE"
+              onChange={this.handleChange}
+              value={this.state.formData.price} />
+            <input type="submit" value=" CREATE PRODUCT" />
           </form>
         )}
         {this.state.products.map(product => (
-          <button> onClick={() => this.edit(product.id)}>Edit Product</button>
+          <div key={product.id}>
+            <h2>{product.name}<br></br>
+              <img src={product.image_url} />
+              <br></br>
+              {product.description}
+              <br></br>
+              ${product.price}
+            </h2>
+            <button onClick={() => this.edit(product.id)}>Edit Product</button>
+            <button onClick={() => this.delete(product.id)}>Delete Product</button>
           </div>
-    ))}
+        ))}
       </div>
     )
   }
 }
+
