@@ -7,9 +7,9 @@ const main = async() => {
         }
     });
 
-    // await Category.destroy({
-    //     where:{}
-    // });
+    await Category.destroy({
+        where:{}
+    });
 
     // CATEGORIES
     // await Category.destroy({
@@ -17,41 +17,36 @@ const main = async() => {
     //     //     id: [2,3,4,5,6,7]
     //     // }
     // });
-    const category1 = await Category.findByPk(1);
+    // const category1 = await Category.findByPk(1);
 
-    // const category2 = await Category.create({
-    //     name: 'Transportation',
-    //     image_url: 'https://s.thestreet.com/files/tsc/v2008/photos/contrib/uploads/366dc481-0a64-11e7-af17-1940214e6372_600x400.jpg',
-    // })
+    const category1 = await Category.create({
+        name: 'Miscellaneous',
+        image_url: 'https://cdn.catawiki.net/assets/marketing/stories-images/2567-513f84cea15967df2bbda23b74d24a1cf09b54a8-og_image.jpg'
+    })
 
-    // const category3 = await Category.create({
-    //     name: 'Pets',
-    //     image_url: 'https://animalkingdom.today/wp-content/uploads/2018/08/animalkingdom.today-Two-white-mutant-white-lions-768x480.jpg',
-    // })
+    const category2 = await Category.create({
+        name: 'Transportation',
+        image_url: 'https://s.thestreet.com/files/tsc/v2008/photos/contrib/uploads/366dc481-0a64-11e7-af17-1940214e6372_600x400.jpg',
+    })
 
-    // const category4 = await Category.create({
-    //     name: 'Food',
-    //     image_url: 'https://icdn1.themanual.com/image/themanual/the-ainsworth-gold-chicken-wings-2-375x375.jpg',
-    // })
+    const category3 = await Category.create({
+        name: 'Pets',
+        image_url: 'https://animalkingdom.today/wp-content/uploads/2018/08/animalkingdom.today-Two-white-mutant-white-lions-768x480.jpg',
+    })
 
-    // MISCELLANEOUS
-    // const product1 = await Product.create({
-    //     name: 'Gold Toilet Paper',
-    //     description: 'A Quality 3 ply toilet paper with 24 carat gold through the roll. As you use the toilet paper 24 carat gold flakes will fall onto the floor and your behind taking you to another level of sophistication.',
-    //     image_url: 'https://s3.scoopwhoop.com/anj/sjsj/01f14d3c-d9ff-4257-94a2-a9aa3254c3e6.jpg',
-    //     price: 1376900,
-        
-    // });
+    const category4 = await Category.create({
+        name: 'Food',
+        image_url: 'https://icdn1.themanual.com/image/themanual/the-ainsworth-gold-chicken-wings-2-375x375.jpg',
+    })
 
-    // category1.setUser(user);
-    // category2.setUser(user);
-    // category3.setUser(user);
-    // category4.setUser(user);
+    category1.setUser(user);
+    category2.setUser(user);
+    category3.setUser(user);
+    category4.setUser(user);
 
     // const product = await Product.findByPk(1);
     
-    // product.setCategory(category)
-    // product.setUser(user)
+
 
     const Transportation = await Category.findOne({
         where: {
@@ -76,14 +71,15 @@ const main = async() => {
             name: 'Miscellaneous'
         }
     })
-    const product2 = await Product.create({
-        name: '24K Gold Men’s Racing Bike',
-        description: 'Made with an aluminium frame, this bike boasts a meticulously applied layer of 24K deep Gold from the handlebars to every ridge of the gear chain, with a soft suede saddle and SR4 Tyres. Not only does the bicycle resemble a striking work of modern art to look at, but it is even more beautiful in motion, as sunlight bounces off the spinning spokes.',
-        image_url: 'https://s3.scoopwhoop.com/anj/sjsj/956b9665-a2ab-4d1d-a40e-d5eea819dcbf.jpg',
-        price: 327970
-    });
-    // product1.setCategory()
 
+    // MISCELLANEOUS
+    const product1 = await Product.create({
+        name: 'Gold Toilet Paper',
+        description: 'A Quality 3 ply toilet paper with 24 carat gold through the roll. As you use the toilet paper 24 carat gold flakes will fall onto the floor and your behind taking you to another level of sophistication.',
+        image_url: 'https://s3.scoopwhoop.com/anj/sjsj/01f14d3c-d9ff-4257-94a2-a9aa3254c3e6.jpg',
+        price: 1376900,
+        
+    });
 
 
     // FOOD
@@ -101,6 +97,14 @@ const main = async() => {
         image_url: 'https://cdn.boatinternational.com/images/20160412/1-109079l-1280x720.jpg',
         price:  2750000
     })
+
+    const product2 = await Product.create({
+        name: '24K Gold Men’s Racing Bike',
+        description: 'Made with an aluminium frame, this bike boasts a meticulously applied layer of 24K deep Gold from the handlebars to every ridge of the gear chain, with a soft suede saddle and SR4 Tyres. Not only does the bicycle resemble a striking work of modern art to look at, but it is even more beautiful in motion, as sunlight bounces off the spinning spokes.',
+        image_url: 'https://s3.scoopwhoop.com/anj/sjsj/956b9665-a2ab-4d1d-a40e-d5eea819dcbf.jpg',
+        price: 327970
+    });
+    
     // PETS
     const product5 = await Product.create({
         name: 'The Tibetan Mastiff',
@@ -109,7 +113,11 @@ const main = async() => {
         price: 582000
     })
 
-    product2.setCategory(Miscellaneous);
+    // product.setCategory(category)
+    // product.setUser(user)
+
+    product1.setCategory(Miscellaneous)
+    product2.setCategory(Transportation);
     product3.setCategory(Food);
     product4.setCategory(Transportation);
     product5.setCategory(Pets);

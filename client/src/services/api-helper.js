@@ -18,3 +18,8 @@ export const fetchCategories = async() => {
   const resp = await api.get('/categories');
   return resp.data;
 }
+
+export const fetchProducts = async() => {
+  const resp = await api.get('/products');
+  return resp.data;
+}
