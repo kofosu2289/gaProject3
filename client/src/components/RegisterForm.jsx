@@ -13,6 +13,7 @@ class Account extends React.Component {
   render() {
     return (
       <div className="formz">
+        <div className="login-reg-buttons">
         <button onClick={() => { this.setState({ login: false }) }}>Register</button>
         <button onClick=
         {() => {
@@ -22,10 +23,10 @@ class Account extends React.Component {
           
         }
         >Login</button>
-
+      </div>
         {this.state.login === false &&
           <div className="reg">
-            <h3>Register Form</h3>
+            <h3 id="reg-label">Create an Account</h3>
             <form className="register-form" onSubmit={this.props.handleSubmit}>
               <label
                 htmlFor="username">Username</label>
@@ -77,7 +78,7 @@ class Account extends React.Component {
                 type="password"
                 name="password"
                 value={this.props.loginForm.password}
-                id="psasword"
+                id="password"
                 onChange={this.props.handleLoginChange}
               />
               <button>Login</button>

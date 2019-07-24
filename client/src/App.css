@@ -2,45 +2,80 @@
   text-align: center;
 }
 
-/* .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+/* NAV Component */
+
+div.app-nav h2{
+  text-align: left;
+  padding-left: 120px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+.app-title{
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: left;
+  flex-direction: row;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  
+}
+#cart-logo{
+  padding-left:1000px;
+}
+#logout{
+  justify-content: left;
+  height:20px;
+}
+#search{
+  bottom: 100px;
 }
 
-.App-link {
-  color: #61dafb;
-} */
 
-.div .formz{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+/* HEADER */
+h1{
+  color: grey;
 }
 
-.reg .login{
-  flex-direction: column;
+/* REGISTER/LOGIN FORM */
+
+/* .register-form{ */
+
+
+
+/* .reg input{
+  display: block;
+}
+
+.login input{
+  display: block;
+  align-content: center;
+  margin-left: 45vw;
 
 }
-div.reg{
+
+#reg-label{
+  align-items: flex-start;
+}
+
+
+.login{
   display:flex;
   justify-content: center;
   align-items: center;
+  background-color: lightblue;
+  height: 250px;
+  width: 100vw;
 }
 
-/* HOME
-.cat-div{
+.reg{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  background-color: lightblue;
+  height: 250px;
+} */
+
+ /* HOME */
+/* .cat-div{
   margin: 20px auto;
   width:400px;
   height:400px;
@@ -67,7 +102,7 @@ div.reg{
 .print_cats img{
   height: 200px;
   width: 200px;
-} */
+}  */
 
 @keyframes App-logo-spin {
   from {

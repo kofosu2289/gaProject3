@@ -4,6 +4,8 @@ import {withRouter} from 'react-router-dom';
 import axios from 'axios';
 import {Link, Route} from 'react-router-dom';
 import Products from './Products';
+import EditCategory from './EditCategory';
+import Nav from './Nav'
   
 class CreateCategory extends React.Component {
   constructor(props){
@@ -24,12 +26,7 @@ render(){
 
   return (
     <div className="createCat">
-      <input id="search"
-        type="text"
-        name="search"
-        placeholder="SEARCH">
-      </input>
-      
+      <Nav />      
       <div className="cat-div">
       {this.props.categories.map((category)=> (
         <div key={category.id} className="print_cats" 
@@ -43,19 +40,7 @@ render(){
       ))}
       </div>
 
-      <h1>ADD CATEGORY</h1>
-      <input id="catName"
-        type="text"
-        name="category-name"
-        placeholder="CATEGORY NAME">
-      </input>
-
-      <input id="catImg"
-        type="url"
-        name="category-img"
-        placeholder="CATEGORY IMAGE">
-      </input>
-      <button id="createcat">SUBMIT</button>
+      <EditCategory />
     </div>
     )
   }
