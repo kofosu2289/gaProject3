@@ -5,7 +5,7 @@ import { registerUser, loginUser } from './services/api-helper';
 import {Route, Link} from 'react-router-dom';
 import CreateCategory from './components/CreateCategory';
 import { withRouter } from 'react-router-dom';
-import EditCategory from './components/EditCategory';
+// import EditCategory from './components/EditCategory';
 
 class App extends React.Component {
   constructor(props) {
@@ -102,7 +102,7 @@ class App extends React.Component {
        } />
       <Link to="/home"></Link>
       <Route path="/home" render={()=><CreateCategory />}/>
-      <EditCategory />
+      {/* <EditCategory /> */}
       </div>
     );
   }
