@@ -145,8 +145,8 @@ export default class ProductEdit extends React.Component {
             value={this.state.formData} />
         </form>
         <button>Submit</button>
-        )}
       </div>
+      
     )
   }
 }
