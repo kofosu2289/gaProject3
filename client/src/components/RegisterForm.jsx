@@ -62,11 +62,10 @@ class Account extends React.Component {
 
                     onChange={this.props.handleRegisterChange} />
                   <label
-                    htmlFor="password">Password</label>
+                    htmlFor="password" onChange={this.props.handleRegisterChange}>Password</label>
 
-                    onChange={this.props.handleRegisterChange}
-                  />
-                  <label htmlFor="password">Password</label>
+                    
+                  
 
                   <input
                     type="password"
