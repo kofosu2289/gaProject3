@@ -3,7 +3,9 @@ import React from 'react';
 
 export default function Nav() {
   return (
+
     <div className="app-nav">
+
     {/* <h1>Make it rain!</h1> */}
     <h2>WELCOME, USER</h2>
     <div className="app-title">

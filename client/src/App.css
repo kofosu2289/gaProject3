@@ -1,14 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Kadwa&display=swap');
+@font-face{
+  font-family:'Kadwa', serif;
+  src: url('https://fonts.googleapis.com/css?family=Kadwa&display=swap')
+}
 .App {
   text-align: center;
 }
+
 
 /* NAV Component */
 
 div.app-nav h2{
   text-align: left;
   padding-left: 120px;
-}
 
+}
+/* body{
+  background-image: url("https://images.unsplash.com/photo-1515180711443-f8685c6d6a74?ixlib=rb-1.2.1&auto=format&w=1050&q=80");
+  background-repeat: no-repeat;
+  background-size: cover;
+} */
 
 .app-title{
   display: flex;
@@ -54,6 +65,7 @@ h1{
 
 #reg-label{
   align-items: flex-start;
+
 }
 
 

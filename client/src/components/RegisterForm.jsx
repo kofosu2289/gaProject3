@@ -1,6 +1,7 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
+
 import { withRouter } from 'react-router-dom'
+
 
 class Account extends React.Component {
   constructor(props) {
@@ -13,6 +14,7 @@ class Account extends React.Component {
 
   render() {
     return (
+
       <>
         {!this.props.currentUser && (<div className="formz">
           <div className="login-reg-buttons">

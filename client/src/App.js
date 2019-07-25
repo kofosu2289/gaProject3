@@ -1,11 +1,14 @@
 import React from 'react';
-import './App.css';
+import { Route, Link, Switch, withRouter } from 'react-router-dom';
+
 import Account from './components/RegisterForm';
+import ProductCreate from './components/ProductCreate';
 import { registerUser, loginUser, fetchCategories } from './services/api-helper';
-import { Route, Link, Switch } from 'react-router-dom';
 import CreateCategory from './components/CreateCategory';
-import { withRouter } from 'react-router-dom';
 import Products from './components/Products'
+
+import './App.css';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -96,6 +99,19 @@ class App extends React.Component {
     return (
       <div className="App">
         <h1>Make it rain!</h1>
+
+        {/* //For Testing
+        <ProductCreate
+          categories={[{
+            id: 1,
+            name: "horses"
+          }, {
+            id: 2,
+            name: "kitchen sinks"
+          }
+          ]}
+        /> */}
+
         <nav>
           <Link to="/"></Link>
           <Link to="/home"></Link>
