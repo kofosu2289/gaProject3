@@ -13,6 +13,7 @@ class Account extends React.Component {
 
   render() {
     return (
+
       <div className="front-page">
         {!this.props.currentUser && (
           <div className="formz">
@@ -41,28 +42,38 @@ class Account extends React.Component {
                   onSubmit={this.props.handleSubmit}
                 >
                   <label htmlFor="username">Username</label>
+
                   <input
                     type="text"
                     name="username"
                     value={this.props.registerForm.username}
                     id="username"
+
                     onChange={this.props.handleRegisterChange}
                   />
 
                   <label htmlFor="email">Email</label>
+
                   <input
                     type="text"
                     name="email"
                     value={this.props.registerForm.email}
                     id="email"
+
+                    onChange={this.props.handleRegisterChange} />
+                  <label
+                    htmlFor="password">Password</label>
+
                     onChange={this.props.handleRegisterChange}
                   />
                   <label htmlFor="password">Password</label>
+
                   <input
                     type="password"
                     name="password"
                     value={this.props.registerForm.password}
                     id="password"
+
                     onChange={this.props.handleRegisterChange}
                   />
                   <input type="submit" value="Sign Up!" />
@@ -101,6 +112,7 @@ class Account extends React.Component {
             )}
           </div>
         )}
+
       </div>
     );
   }

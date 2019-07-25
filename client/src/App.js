@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, Link, Switch, withRouter } from 'react-router-dom';
-
 import Account from './components/RegisterForm';
 import ProductCreate from './components/ProductCreate';
 import { registerUser, loginUser, fetchCategories } from './services/api-helper';
@@ -101,16 +100,18 @@ class App extends React.Component {
     })
     console.log(this.state.categories);
   }
+
+
   render() {
     debugger;
     return (
       <div className="App">
-
         <h1>BENJAMINS</h1>
+
         <nav>
           <Link to="/"></Link>
           <Link to="/home"></Link>
-          <Link to="/products/:id">Products</Link>
+         
         </nav>
 
         <main>
@@ -134,9 +135,9 @@ class App extends React.Component {
 
 
               />
-              <ProductCreate
-                categories={this.state.categories} />
+               <Route path="/productcreate" render={() => <ProductCreate />} />
             </>
+
 
 
 
@@ -168,6 +169,7 @@ class App extends React.Component {
 
 
           }
+
         </main>
 
       </div>

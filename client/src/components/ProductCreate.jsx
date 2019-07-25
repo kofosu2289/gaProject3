@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import CreateCategory from './CreateCategory';
+import Nav from './Nav';
 
 
 export default class ProductCreate extends React.Component {
@@ -24,7 +24,6 @@ export default class ProductCreate extends React.Component {
     this.setState({
       products: resp.data.products,
     });
-    // debugger;
   }
 
 
@@ -74,7 +73,7 @@ export default class ProductCreate extends React.Component {
         product.id !== parseInt(id)
       ))
     }))
-    console.log(res)
+    // console.log(res)
   }
 
   update = async () => {
@@ -94,7 +93,6 @@ export default class ProductCreate extends React.Component {
   }
 
   handleChange = (ev) => {
-    // debugger;
     const { target: { name, value } } = ev;
     this.setState(prevState => ({
       formData: {
@@ -111,14 +109,17 @@ export default class ProductCreate extends React.Component {
 
   componentDidMount() {
     this.fetchProducts();
-    console.log(this.state.products)
+    // console.log(this.state.products)
   }
 
   render() {
-    console.log(this.state);
+    // console.log(this.state);
     return (
+
       <div>
+        <Nav />
         <h3>ADD PRODUCT</h3>
+
         {this.state.editingId !== null && (
           <form onSubmit={this.handleUpdateSubmit}>
             <input
@@ -182,14 +183,7 @@ export default class ProductCreate extends React.Component {
               placeholder="PRODUCT PRICE"
               onChange={this.handleChange}
               value={this.state.formData.price} />
-            <select name="category" onChange={this.handleChange}>
-              <option> -- </option>
-              {
-                this.props.categories.map((cat) => (
-                  <option key={cat.id} value={cat.id}>{cat.name}</option>
-                ))
-              }
-            </select>
+
 
             <input type="submit" value=" CREATE PRODUCT" />
           </form>
