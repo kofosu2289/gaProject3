@@ -24,7 +24,6 @@ export default class ProductCreate extends React.Component {
     this.setState({
       products: resp.data.products,
     });
-    // debugger;
   }
 
 
