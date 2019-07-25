@@ -14,6 +14,7 @@ class Account extends React.Component {
 
   render() {
     return (
+      <div className="background-yo">
       <div className="front-page">
         {!this.props.currentUser && (<div className="formz">
           <div className="login-reg-buttons">
@@ -86,7 +87,8 @@ class Account extends React.Component {
           }
 
         </div>)}
-      </div>
+        </div>
+        </div>
     )
   }
 }

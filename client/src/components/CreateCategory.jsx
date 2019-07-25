@@ -34,13 +34,11 @@ render(){
           this.props.history.push(`/products/${category.id}`)
         }}
         >
-          <p>{category.name}</p>
-          <img src={category.image_url} alt text="cat_img"/>
         </div>
       ))}
+      <EditCategory />
       </div>
 
-      <EditCategory />
     </div>
     )
   }

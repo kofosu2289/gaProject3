@@ -135,6 +135,9 @@ class EditCategory extends React.Component {
         )}
         {this.state.categories.map(category => (
           <div key={category.id}>
+         <p>{category.name}</p>
+          <img src={category.image_url} alt text="cat_img"/>
+
             <button onClick={() => this.edit(category.id)}>Edit Category</button>
             <button onClick={() => this.delete(category.id)}>Delete Category</button>
           </div>
