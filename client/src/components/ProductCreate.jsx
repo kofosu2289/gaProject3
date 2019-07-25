@@ -20,7 +20,7 @@ export default class ProductCreate extends React.Component {
   }
 
   fetchProducts = async () => {
-    const resp = await axios.get('http://localhost:3001/products');
+    const resp = await axios.get('https://agile-falls-46666.herokuapp.com/products');
     this.setState({
       products: resp.data.products,
     });
@@ -40,7 +40,7 @@ export default class ProductCreate extends React.Component {
     console.log(this.props.categories);
     console.log(category);
 
-    const resp = await axios.post(`http://localhost:3001/products/category/${category.id}`, data);
+    const resp = await axios.post(`https://agile-falls-46666.herokuapp.com/products/category/${category.id}`, data);
     const products = resp.data.product;
     console.log(products);
     this.setState(prevState => ({
@@ -67,7 +67,7 @@ export default class ProductCreate extends React.Component {
   }
 
   delete = async (id) => {
-    const res = await axios.delete(`http://localhost:3001/products/${id}`)
+    const res = await axios.delete(`https://agile-falls-46666.herokuapp.com/products/${id}`)
     this.setState(prevState => ({
       products: prevState.products.filter((product) => (
         product.id !== parseInt(id)
@@ -78,7 +78,7 @@ export default class ProductCreate extends React.Component {
 
   update = async () => {
     const data = this.state.formData;
-    const resp = await axios.put('http://localhost:3001/products/' + this.state.editingId, data);
+    const resp = await axios.put('https://agile-falls-46666.herokuapp.com/products/' + this.state.editingId, data);
     const product = resp.data;
     this.setState(prevState => ({
       products: prevState.products.map(t => (t.id === product.id ? product : t)),

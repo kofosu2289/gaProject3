@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: `http://localhost:3001`,
+  baseURL: `https://agile-falls-46666.herokuapp.com`,
 });
 
 export const loginUser = async (loginData) => {

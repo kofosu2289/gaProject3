@@ -2,7 +2,7 @@ const axios = require('axios');
 const uuidv4 = require('uuid/v4');
 const { Transaction, Product, User } = require('./models');
 
-const BASE_URL = 'http://localhost:3001';
+const BASE_URL = 'https://agile-falls-46666.herokuapp.com';
 
 
 

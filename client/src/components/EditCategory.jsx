@@ -16,7 +16,7 @@ class EditCategory extends React.Component {
   }
 
   fetchCategories = async () => {
-    const resp = await axios.get('http://localhost:3001/categories');
+    const resp = await axios.get('https://agile-falls-46666.herokuapp.com/categories');
     this.setState({
       categories: resp.data.categories,
     });
@@ -31,7 +31,7 @@ class EditCategory extends React.Component {
 
   create = async () => {
     const data = this.state.formData;
-    const resp = await axios.post('http://localhost:3001/categories', data)
+    const resp = await axios.post('https://agile-falls-46666.herokuapp.com/categories', data)
     const categories = resp.data.categories;
     this.setState(prevState => ({
       categories: [...prevState.categories, categories],
@@ -54,7 +54,7 @@ class EditCategory extends React.Component {
   }
 
   delete = async (id) => {
-    const resp = await axios.delete(`http://localhost:3001/categories/${id}`)
+    const resp = await axios.delete(`https://agile-falls-46666.herokuapp.com/categories/${id}`)
     this.setState(prevState => ({
       categories: prevState.categories.filter((category) => (
         category.id !== parseInt(id)
@@ -65,7 +65,7 @@ class EditCategory extends React.Component {
 
   update = async () => {
     const data = this.state.formData;
-    const resp = await axios.put('http://localhost:3001/categories/' + this.state.editingId, data);
+    const resp = await axios.put('https://agile-falls-46666.herokuapp.com/categories/' + this.state.editingId, data);
     const category = resp.data;
     this.setState(prevState => ({
       categories: prevState.categories.map(t => (t.id === category.id ? category : t)),
