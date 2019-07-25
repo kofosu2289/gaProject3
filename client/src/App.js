@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, Link, Switch, withRouter } from 'react-router-dom';
-
 import Account from './components/RegisterForm';
 import ProductCreate from './components/ProductCreate';
 import { registerUser, loginUser, fetchCategories } from './services/api-helper';
@@ -96,26 +95,12 @@ class App extends React.Component {
       categories: categories.categories
     })
   }
+
+
   render() {
     return (
       <div className="App">
-
         <h1>BENJAMINS</h1>
-
-
-
-        {/* //For Testing
-        <ProductCreate
-          categories={[{
-            id: 1,
-            name: "horses"
-          }, {
-            id: 2,
-            name: "kitchen sinks"
-          }
-          ]}
-        /> */}
-
 
         <nav>
           <Link to="/"></Link>
@@ -152,9 +137,14 @@ class App extends React.Component {
           // <CreateCategory id={props.match.params.category_id} />
 
           />
+          <Route path="/productcreate" render={() => <ProductCreate />} />
+
           {/* {this.state.currentUser !== null &&
           <Nav loginFormData={this.state.loginFormData.username}/>
           } */}
+          {/* <ProductCreate /> */}
+
+
         </main>
       </div>
     );

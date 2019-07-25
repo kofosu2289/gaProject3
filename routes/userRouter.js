@@ -24,6 +24,7 @@ const authResponse = (user) => {
 
 userRouter.post('/register', async (req, res) => {
   try {
+    debugger;
     const hash = await hashPassword(req.body.password);
 
     const user = await User.create({
@@ -35,6 +36,7 @@ userRouter.post('/register', async (req, res) => {
     const respData = authResponse(user);
     res.json({ ...respData });
   } catch (e) {
+    console.log(e)
     res.status(500).send(e.message);
   }
 });

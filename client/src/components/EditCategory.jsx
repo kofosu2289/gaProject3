@@ -91,7 +91,7 @@ class EditCategory extends React.Component {
     ev.preventDefault();
     this.update();
   }
-  
+
   componentDidMount() {
     this.fetchCategories();
   }
@@ -100,38 +100,38 @@ class EditCategory extends React.Component {
 
     return (
       <div>
-      <h1>Category edit/update/create/delete</h1>
-      {this.state.editingId !== null && (
-      <form onSubmit={this.handleUpdateSubmit}>
-        <input
-          type="text"
-          name="name"
-          onChange={this.handleChange}
-          value={this.state.formData.name} />
-          <input
-          type="text"
-          name="image_url"
-          onChange={this.handleChange}
-          value={this.state.formData.image_url} />
-        <input type="submit" value="Update Category"/>
-      </form>
-      )}
-    {this.state.editingId === null && (
-      <form onSubmit={this.handleCreateSubmit}>
-        <input
-          type="text"
-          name="name"
-          placeholder="category name"
-          onChange={this.handleChange}
-          value={this.state.formData.name} />
-        <input
-          type="text"
-          name="image_url"
-          placeholder="category URL"
-          onChange={this.handleChange}
-          value={this.state.formData.image_url} />
-      <input type="submit" value="Create Category" />
-      </form>
+        <h1>Category edit/update/create/delete</h1>
+        {this.state.editingId !== null && (
+          <form onSubmit={this.handleUpdateSubmit}>
+            <input
+              type="text"
+              name="name"
+              onChange={this.handleChange}
+              value={this.state.formData.name} />
+            <input
+              type="text"
+              name="image_url"
+              onChange={this.handleChange}
+              value={this.state.formData.image_url} />
+            <input type="submit" value="Update Category" />
+          </form>
+        )}
+        {this.state.editingId === null && (
+          <form onSubmit={this.handleCreateSubmit}>
+            <input
+              type="text"
+              name="name"
+              placeholder="category name"
+              onChange={this.handleChange}
+              value={this.state.formData.name} />
+            <input
+              type="text"
+              name="image_url"
+              placeholder="category URL"
+              onChange={this.handleChange}
+              value={this.state.formData.image_url} />
+            <input type="submit" value="Create Category" />
+          </form>
         )}
         {this.state.categories.map(category => (
           <div key={category.id}>
@@ -139,13 +139,12 @@ class EditCategory extends React.Component {
             <button onClick={() => this.delete(category.id)}>Delete Category</button>
           </div>
         ))}
-        </div>
-            )
-          }
-        }
+      </div>
+    )
+  }
+}
 
 export default EditCategory;
-                
-                
-                
- 
+
+
+
