@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, Link, Switch, withRouter } from 'react-router-dom';
-
 import Account from './components/RegisterForm';
 import ProductCreate from './components/ProductCreate';
 import { registerUser, loginUser, fetchCategories } from './services/api-helper';
@@ -59,6 +58,8 @@ class App extends React.Component {
     const auth = 'Bearer ' + userData.token;
     localStorage.setItem('jwt', userData.token);
     localStorage.setItem('jwtToken', auth);
+    localStorage.setItem('userData', userData.user);
+    console.log(localStorage.userData);
   }
 
   handleRegisterSubmit = async (ev) => {
@@ -88,16 +89,19 @@ class App extends React.Component {
     const auth = 'Bearer ' + userData.token;
     localStorage.setItem('jwt', userData.token);
     localStorage.setItem('jwtToken', auth);
+    localStorage.setItem('userData', userData.user);
+
     this.props.history.push('/home');
   }
 
   componentDidMount = async () => {
     const categories = await fetchCategories();
     this.setState({
-      categories: categories.categories
+      categories: categories.categories,
     })
     console.log(this.state.categories);
   }
+
 
 
 
@@ -162,7 +166,7 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        {display}
+        {d
       </div>
     );
   }
