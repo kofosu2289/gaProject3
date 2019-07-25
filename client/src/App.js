@@ -1,11 +1,14 @@
 import React from 'react';
-import './App.css';
+import { Route, Link, Switch, withRouter } from 'react-router-dom';
+
 import Account from './components/RegisterForm';
-import { registerUser, loginUser } from './services/api-helper';
-import { Route, Link } from 'react-router-dom';
-import CreateCategory from './components/CreateCategory';
-import { withRouter } from 'react-router-dom';
 import ProductCreate from './components/ProductCreate';
+import { registerUser, loginUser, fetchCategories } from './services/api-helper';
+import CreateCategory from './components/CreateCategory';
+import Products from './components/Products'
+
+import './App.css';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -21,6 +24,7 @@ class App extends React.Component {
         password: ''
       },
       currentUser: null,
+      categories: []
     }
   }
 
@@ -85,23 +89,17 @@ class App extends React.Component {
     this.props.history.push('/home');
   }
 
+  componentDidMount = async () => {
+    const categories = await fetchCategories();
+    this.setState({
+      categories: categories.categories
+    })
+  }
   render() {
     return (
       <div className="App">
         <h1>Make it rain!</h1>
-        <Link to="/"></Link>
-        <Route exact path="/" render={() =>
-          <Account
-            handleLoginSubmit={this.handleLoginSubmit}
-            registerForm={this.state.registerFormData}
-            loginForm={this.state.loginFormData}
-            handleSubmit={this.handleRegisterSubmit}
-            handleRegisterChange={this.handleRegisterChange}
-            handleLoginChange={this.handleLoginChange}
-          />
-        } />
-        <Link to="/home"></Link>
-        <Route path="/home" render={() => <CreateCategory />} />
+
         {/* //For Testing
         <ProductCreate
           categories={[{
@@ -113,6 +111,43 @@ class App extends React.Component {
           }
           ]}
         /> */}
+
+        <nav>
+          <Link to="/"></Link>
+          <Link to="/home"></Link>
+          {/* <Link to="/products/:id">Products</Link> */}
+        </nav>
+        <main>
+
+          <Route path="/" render={() =>
+            <Account
+              handleLoginSubmit={this.handleLoginSubmit}
+              registerForm={this.state.registerFormData}
+              loginForm={this.state.loginFormData}
+              handleSubmit={this.handleRegisterSubmit}
+              handleRegisterChange={this.handleRegisterChange}
+              handleLoginChange={this.handleLoginChange}
+              currentUser={this.state.currentUser}
+            />
+          } />
+          <Route exact path="/home" render={() => (
+            <CreateCategory
+              categories={this.state.categories}
+            />)} />
+          <Route path="/products/:id" render={(props) => {
+            const id = parseInt(props.match.params.id);
+            const category = this.state.categories.find(cat => cat.id === id);
+
+            return <Products
+              id={id}
+              category={category}
+            />
+          }
+          }
+          // <CreateCategory id={props.match.params.category_id} />
+
+          />
+        </main>
       </div>
     );
   }
