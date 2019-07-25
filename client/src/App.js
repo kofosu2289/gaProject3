@@ -6,6 +6,7 @@ import ProductCreate from './components/ProductCreate';
 import { registerUser, loginUser, fetchCategories } from './services/api-helper';
 import CreateCategory from './components/CreateCategory';
 import Products from './components/Products'
+import Nav from './components/Nav'
 
 import './App.css';
 
@@ -98,7 +99,10 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1>Make it rain!</h1>
+
+        <h1>BENJAMINS</h1>
+
+
 
         {/* //For Testing
         <ProductCreate
@@ -111,6 +115,7 @@ class App extends React.Component {
           }
           ]}
         /> */}
+
 
         <nav>
           <Link to="/"></Link>
@@ -147,6 +152,9 @@ class App extends React.Component {
           // <CreateCategory id={props.match.params.category_id} />
 
           />
+          {/* {this.state.currentUser !== null &&
+          <Nav loginFormData={this.state.loginFormData.username}/>
+          } */}
         </main>
       </div>
     );
