@@ -3,13 +3,13 @@ const { Product, Category, User } = require('./models');
 const main = async() => {
     const user = await User.findOne({
         where: {
-            id: 1
+        id: 1,
         }
     });
 
-    await Category.destroy({
-        where:{}
-    });
+    // await Category.destroy({
+    //     where:{}
+    // });
 
     // CATEGORIES
     // await Category.destroy({
