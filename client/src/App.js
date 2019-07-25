@@ -91,6 +91,7 @@ class App extends React.Component {
   }
 
   componentDidMount = async () => {
+
     const categories = await fetchCategories();
     this.setState({
       categories: categories.categories
@@ -107,41 +108,43 @@ class App extends React.Component {
           <Link to="/home"></Link>
           <Link to="/products/:id">Products</Link>
         </nav>
+
         <main>
+          if{!localStorage.jwt ?
+            <Route path="/" render={() =>
+              <Account
+                handleLoginSubmit={this.handleLoginSubmit}
+                registerForm={this.state.registerFormData}
+                loginForm={this.state.loginFormData}
+                handleSubmit={this.handleRegisterSubmit}
+                handleRegisterChange={this.handleRegisterChange}
+                handleLoginChange={this.handleLoginChange}
+                currentUser={this.state.currentUser}
+              />
+            } />
+            :
+            <>
+              <Route exact path="/home" render={() => (
+                <CreateCategory
+                  categories={this.state.categories}
+                />)} />
+              <Route path="/products/:id" render={(props) => {
+                const id = parseInt(props.match.params.id);
+                const category = this.state.categories.find(cat => cat.id === id);
 
-          <Route path="/" render={() =>
-            <Account
-              handleLoginSubmit={this.handleLoginSubmit}
-              registerForm={this.state.registerFormData}
-              loginForm={this.state.loginFormData}
-              handleSubmit={this.handleRegisterSubmit}
-              handleRegisterChange={this.handleRegisterChange}
-              handleLoginChange={this.handleLoginChange}
-              currentUser={this.state.currentUser}
-            />
-          } />
-          <Route exact path="/home" render={() => (
-            <CreateCategory
-              categories={this.state.categories}
-            />)} />
-          <Route path="/products/:id" render={(props) => {
-            const id = parseInt(props.match.params.id);
-            const category = this.state.categories.find(cat => cat.id === id);
+                return <Products
+                  id={id}
+                  category={category}
+                />
+              }
+              } />
+              <ProductCreate
+                categories={this.state.categories} />
+            </>
 
-            return <Products
-              id={id}
-              category={category}
-            />
           }
-        } />
-        <ProductCreate
-          categories={this.state.categories} />
-          {/* <CreateCategory id={props.match.params.category_id} />
-
-           {/* {this.state.currentUser !== null &&
-          // <Nav loginFormData={this.state.loginFormData.username}/>
-          // } */}
         </main>
+
       </div>
     );
   }

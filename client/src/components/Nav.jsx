@@ -1,4 +1,5 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom'
 
 class Nav extends React.Component {
   constructor(props){
@@ -12,7 +13,7 @@ class Nav extends React.Component {
       {/* <h2>{this.props.loginFormData.username}</h2> */}
       <h2>Welcome</h2>
       <div className="app-title">
-        <button id="logout">LOGOUT</button>
+          <button id="logout" onClick={() => { localStorage.removeItem('jwt'); this.props.history.push('/')  }}>LOGOUT</button>
         <img id="cart-logo" src="http://i68.tinypic.com/28iwxnc.png" alt="cart" />
 
       </div>
@@ -28,4 +29,4 @@ class Nav extends React.Component {
   }
 }
 
-export default Nav;
+export default withRouter(Nav);
