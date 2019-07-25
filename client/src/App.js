@@ -3,9 +3,10 @@ import { Route, Link, Switch, withRouter } from 'react-router-dom';
 import Account from './components/RegisterForm';
 import ProductCreate from './components/ProductCreate';
 import { registerUser, loginUser, fetchCategories } from './services/api-helper';
-import CreateCategory from './components/CreateCategory';
+import EditCategory from './components/EditCategory';
 import Products from './components/Products'
 import Nav from './components/Nav'
+
 
 import './App.css';
 
@@ -102,76 +103,70 @@ class App extends React.Component {
   }
 
 
+
+
+
   render() {
-    debugger;
+    let display 
+    if (this.state.currentUser === null) {
+      display = 
+      <> 
+      
+      
+      <Route path="/" render={() =>
+        <Account
+          handleLoginSubmit={this.handleLoginSubmit}
+          registerForm={this.state.registerFormData}
+          loginForm={this.state.loginFormData}
+          handleSubmit={this.handleRegisterSubmit}
+          handleRegisterChange={this.handleRegisterChange}
+          handleLoginChange={this.handleLoginChange}
+          currentUser={this.state.currentUser}
+        />
+      } />
+      </>
+    }
+    
+    
+    else {
+      display = 
+      <>
+      <Link to="/home"><h1>BENJAMINS</h1></Link>
+      <nav>
+        <Link to="/"></Link>
+        <Link to="/home"></Link>
+        {/* <Link to="/products/:id"></Link> */}
+        {/* <Link to ="/products">All Products</Link> */}
+      </nav>
+      <main>
+
+       
+        <Route exact path="/home" render={() => (
+          <EditCategory
+            categories={this.state.categories}
+          />)} />
+        <Route path="/products/:id" render={(props) => {
+          const id = parseInt(props.match.params.id);
+          const category = this.state.categories.find(cat => cat.id === id);
+
+          return <Products
+            id={id}
+            category={category}
+          />
+        }
+      } />
+      {/* <Route path="/products" render={() => (
+        <ProductCreate
+        categories={this.state.categories} />
+      )} /> */}
+      </main>
+      </>
+    }
+
+
     return (
       <div className="App">
-        <h1>BENJAMINS</h1>
-
-        <nav>
-          <Link to="/"></Link>
-          <Link to="/home"></Link>
-         
-        </nav>
-
-        <main>
-          {localStorage.jwt ?
-            <>
-              <Route exact path="/home" render={() => (
-                <CreateCategory
-                  categories={this.state.categories}
-                />)} />
-              <Route path="/products/:id" render={(props) => {
-                const id = parseInt(props.match.params.id);
-                const category = this.state.categories.find(cat => cat.id === id);
-
-                return <Products
-                  id={id}
-                  category={category}
-                />
-              }
-              }
-              
-
-
-              />
-               <Route path="/productcreate" render={() => <ProductCreate />} />
-            </>
-
-
-
-
-
-
-
-            :
-            <Route path="/" render={() =>
-              <Account
-                handleLoginSubmit={this.handleLoginSubmit}
-                registerForm={this.state.registerFormData}
-                loginForm={this.state.loginFormData}
-                handleSubmit={this.handleRegisterSubmit}
-                handleRegisterChange={this.handleRegisterChange}
-                handleLoginChange={this.handleLoginChange}
-                currentUser={this.state.currentUser}
-              />
-
-            } />
-
-
-
-
-
-  
-              } />
-             
-            
-
-
-          }
-
-        </main>
-
+        {d
       </div>
     );
   }
