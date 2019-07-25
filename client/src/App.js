@@ -6,6 +6,7 @@ import { Route, Link, Switch } from 'react-router-dom';
 import CreateCategory from './components/CreateCategory';
 import { withRouter } from 'react-router-dom';
 import Products from './components/Products'
+import Nav from './components/Nav'
 
 class App extends React.Component {
   constructor(props) {
@@ -95,7 +96,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1>Make it rain!</h1>
+        <h1>BENJAMINS</h1>
         <nav>
           <Link to="/"></Link>
           <Link to="/home"></Link>
@@ -131,6 +132,9 @@ class App extends React.Component {
           // <CreateCategory id={props.match.params.category_id} />
 
           />
+          {/* {this.state.currentUser !== null &&
+          <Nav loginFormData={this.state.loginFormData.username}/>
+          } */}
         </main>
       </div>
     );

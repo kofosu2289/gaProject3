@@ -20,12 +20,12 @@ export default class Products extends React.Component {
   
   render() {
     return (
-      <div> 
+      <div className="products"> 
          {this.state.products.map((product)=>( 
 
              (this.state.id === product.categoryId && 
-                <div key={product.id}>
-                    <p>{product.name}</p>
+                <div className="one-product" key={product.id}>
+                    <h3>{product.name}</h3>
                     <img src={product.image_url} />
                     <p>{product.description}</p>
                     <h4>${product.price}</h4>

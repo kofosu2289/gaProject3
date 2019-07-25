@@ -1,24 +1,37 @@
-.App {
-  text-align: center;
+/* NAV Component */
+
+body {
+   background-image: url('https://images.unsplash.com/photo-1515180711443-f8685c6d6a74?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80');
+   background-repeat: no-repeat; 
+  background-size: 100%; 
+
 }
 
 /* NAV Component */
+.app-nav{
+  background-color: black;
 
-div.app-nav h2{
+}
+.app-nav h2{
   text-align: left;
-  padding-left: 120px;
+  font-family: 'Rajdhani', sans-serif;
+  color: white;
+  font-size: 20px;
+  padding: 0;
+}
+#cart-logo {
+  border: 1px solid black;
+  float: right;
+  margin-right: 10px;
+  height: 40px;
+  width: auto;
+  border-radius: 25px;
 }
 
-
-.app-title{
-  display: flex;
-  justify-content: left;
-  flex-direction: row;
-  justify-content: center;
-  
-}
-#cart-logo{
-  padding-left:1000px;
+#cart-logo img {
+  /* margin-bottom: 20px; */
+  height: 20px;
+  width: auto;
 }
 #logout{
   justify-content: left;
@@ -32,77 +45,150 @@ div.app-nav h2{
 
 /* HEADER */
 h1{
-  color: grey;
+  color:white;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 70px;
+  text-align: center;
+
 }
 
 /* REGISTER/LOGIN FORM */
+/* register */
+.reg{
+  box-sizing: border-box;
+  margin-left: 500px;
+  margin-right: 500px;
+}
 
-/* .register-form{ */
-
-
-
-/* .reg input{
+.reg input{
   display: block;
+  margin-left: 5vw;
+  padding: 5px;
+  width: 300px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 18px;
+}
+
+.reg label{
+  margin-left: 5vw;
+}
+
+.reg h3{
+  text-align: center;
+  color: white;
+}
+
+.reg form{
+  padding-bottom: 20px;
+  padding-top: 20px;
+  border: 1px solid black;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  /* background-color: indigo; */
+}
+
+/* login */
+.login{
+  box-sizing: border-box;
+  margin-left: 500px;
+  margin-right: 500px;
+
 }
 
 .login input{
   display: block;
-  align-content: center;
-  margin-left: 45vw;
-
+  margin-left: 5vw;
+  padding: 5px;
+  width: 300px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 18px;
 }
 
-#reg-label{
-  align-items: flex-start;
+.login label{
+  margin-left: 5vw;
 }
 
+.login h3{
+  text-align: center;
+}
 
-.login{
-  display:flex;
-  justify-content: center;
-  align-items: center;
+.login form{
+  padding-bottom: 20px;
+  padding-top: 20px;
+  border: 1px solid black;
   background-color: lightblue;
-  height: 250px;
-  width: 100vw;
 }
 
-.reg{
-  display:flex;
+.login-reg-buttons {
+  /* display: inline-block; */
+  display: flex;
   justify-content: center;
-  align-items: center;
-  background-color: lightblue;
-  height: 250px;
-} */
+}
+
+.login-reg-buttons button{
+  padding: 10px;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 15px;
+  margin-right: 3px;
+}
+
+.front-page h3{
+  color: white;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+}
 
  /* HOME */
-/* .cat-div{
-  margin: 20px auto;
-  width:400px;
-  height:400px;
-  background-color:#fff;
-  display:grid;
-  grid-template-columns: 200px 200px;
-  grid-row: auto auto;
-  grid-column-gap: 20px;
-  grid-row-gap: 20px;
-
+.cat-div{
+  display: grid;
+  grid-template-columns: 400px 400px;
+  margin-left: 43vh;
 }
 
 .print_cats{
-  background-color:#333;
-  padding:20px;
-  border-radius:10px;
-  color:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:20px;
-  font-family:sans-serif;
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  justify-items: center;
+
 }
 .print_cats img{
-  height: 200px;
-  width: 200px;
-}  */
+  height: 300px;
+  width: 300px;
+}
+
+/* PRODUCTS */
+.products{
+  /* text-align: center; */
+  display: grid;
+  grid-template-columns: 400px 400px;
+  margin-left: 43vh;
+}
+
+.one-product{
+  padding: 20px;
+  font-size: 18px;
+  text-align: center;
+  justify-items: center;
+}
+
+.products img{
+  /* height: 300px;
+  width: auto; */
+  height: 300px;
+  width: 300px;
+}
 
 @keyframes App-logo-spin {
   from {
