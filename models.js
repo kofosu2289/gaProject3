@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 
 let sequelize;
 if (process.env.DATABASE_URL) {
-  sequelize = new Sequelize({
+  sequelize = new Sequelize(process.env.DATABASE_URL, {
     dialect: 'postgres',
     define: {
       underscored: true,
