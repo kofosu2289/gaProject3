@@ -58,6 +58,8 @@ class App extends React.Component {
     const auth = 'Bearer ' + userData.token;
     localStorage.setItem('jwt', userData.token);
     localStorage.setItem('jwtToken', auth);
+    localStorage.setItem('userData', userData.user);
+    console.log(localStorage.userData);
   }
 
   handleRegisterSubmit = async (ev) => {
@@ -87,18 +89,20 @@ class App extends React.Component {
     const auth = 'Bearer ' + userData.token;
     localStorage.setItem('jwt', userData.token);
     localStorage.setItem('jwtToken', auth);
+    localStorage.setItem('userData', userData.user);
+
     this.props.history.push('/home');
   }
 
   componentDidMount = async () => {
-
     const categories = await fetchCategories();
     this.setState({
-      categories: categories.categories
+      categories: categories.categories,
     })
     console.log(this.state.categories);
   }
   render() {
+    debugger;
     return (
       <div className="App">
 
@@ -110,19 +114,7 @@ class App extends React.Component {
         </nav>
 
         <main>
-          if{!localStorage.jwt ?
-            <Route path="/" render={() =>
-              <Account
-                handleLoginSubmit={this.handleLoginSubmit}
-                registerForm={this.state.registerFormData}
-                loginForm={this.state.loginFormData}
-                handleSubmit={this.handleRegisterSubmit}
-                handleRegisterChange={this.handleRegisterChange}
-                handleLoginChange={this.handleLoginChange}
-                currentUser={this.state.currentUser}
-              />
-            } />
-            :
+          {localStorage.jwt ?
             <>
               <Route exact path="/home" render={() => (
                 <CreateCategory
@@ -137,10 +129,43 @@ class App extends React.Component {
                   category={category}
                 />
               }
-              } />
+              }
+              
+
+
+              />
               <ProductCreate
                 categories={this.state.categories} />
             </>
+
+
+
+
+
+
+            :
+            <Route path="/" render={() =>
+              <Account
+                handleLoginSubmit={this.handleLoginSubmit}
+                registerForm={this.state.registerFormData}
+                loginForm={this.state.loginFormData}
+                handleSubmit={this.handleRegisterSubmit}
+                handleRegisterChange={this.handleRegisterChange}
+                handleLoginChange={this.handleLoginChange}
+                currentUser={this.state.currentUser}
+              />
+
+            } />
+
+
+
+
+
+  
+              } />
+             
+            
+
 
           }
         </main>
