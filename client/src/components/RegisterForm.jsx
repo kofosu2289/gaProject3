@@ -86,8 +86,8 @@ class Account extends React.Component {
               </form>
 
             </div>
-            {this.state.login ===
-              false /*this.state.loggedIn === false &&*/ && (
+          {this.state.login ===
+              false  && (
               <div className="reg">
                 <h3 id="reg-label">Create an Account</h3>
                 <form
