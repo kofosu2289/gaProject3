@@ -100,6 +100,7 @@ class App extends React.Component {
     this.setState({
       categories: categories.categories,
     })
+    console.log(this.state.categories);
   }
   render() {
     debugger;
@@ -107,26 +108,10 @@ class App extends React.Component {
       <div className="App">
 
         <h1>BENJAMINS</h1>
-
-
-
-        {/* //For Testing
-        <ProductCreate
-          categories={[{
-            id: 1,
-            name: "horses"
-          }, {
-            id: 2,
-            name: "kitchen sinks"
-          }
-          ]}
-        /> */}
-
-
         <nav>
           <Link to="/"></Link>
           <Link to="/home"></Link>
-          {/* <Link to="/products/:id">Products</Link> */}
+          <Link to="/products/:id">Products</Link>
         </nav>
         <main>
           {localStorage.jwt ?
