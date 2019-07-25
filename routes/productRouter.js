@@ -15,6 +15,15 @@ productRouter.get('/:id', async (req, res) => {
   res.json({ product });
 });
 
+// SHOW ALL PRODUCTS IN A CATEGORY
+productRouter.get('/:categoryId', async (req, res) => {
+  const products = await Product.findAll({
+    where: {
+      category_id: req.params.categoryId,
+    },
+  });
+});
+
 // CREATE A PRODUCT
 productRouter.post('/', async (req, res) => {
   const product = await Product.create(req.body);
