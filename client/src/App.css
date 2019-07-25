@@ -12,7 +12,7 @@ body {
 }
 
 /* NAV Component */
-.app-nav{
+}.app-nav{
   background-color: black;
 
 }
@@ -127,7 +127,7 @@ h1{
 
 .login label{
   margin-left: 5vw;
-
+}
 .login h3{
   text-align: center;
 }
