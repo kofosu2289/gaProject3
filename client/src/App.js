@@ -95,7 +95,6 @@ class App extends React.Component {
   }
 
   componentDidMount = async () => {
-    
     const categories = await fetchCategories();
     this.setState({
       categories: categories.categories,
@@ -113,6 +112,7 @@ class App extends React.Component {
           <Link to="/home"></Link>
           <Link to="/products/:id">Products</Link>
         </nav>
+
         <main>
           {localStorage.jwt ?
             <>
@@ -120,13 +120,13 @@ class App extends React.Component {
                 <CreateCategory
                   categories={this.state.categories}
                 />)} />
-              <Route path="/products/category/:categoryId" render={(props) => {
+              <Route path="/products/:id" render={(props) => {
                 const id = parseInt(props.match.params.id);
                 const category = this.state.categories.find(cat => cat.id === id);
 
                 return <Products
                   id={id}
-                  categories={this.state.categories}
+                  category={category}
                 />
               }
               }
@@ -134,7 +134,8 @@ class App extends React.Component {
 
 
               />
-              {/* <ProductCreate categories = {this.state.categories} /> */}
+              <ProductCreate
+                categories={this.state.categories} />
             </>
 
 
@@ -160,8 +161,15 @@ class App extends React.Component {
 
 
 
+  
+              } />
+             
+            
+
+
           }
         </main>
+
       </div>
     );
   }
