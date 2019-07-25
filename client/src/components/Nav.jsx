@@ -1,8 +1,12 @@
 import React from 'react';
+
 import ProductCreate from './ProductCreate';
 import { Link, Route } from 'react-router-dom';
 
 
+
+
+import {withRouter} from 'react-router-dom'
 
 
 class Nav extends React.Component {
@@ -13,6 +17,7 @@ class Nav extends React.Component {
   render() {
     return (
       <div className="app-nav">
+
         <nav>
           <ul className="nav-links">
             <li><Link to="/">Login/Register</Link></li>
@@ -25,14 +30,18 @@ class Nav extends React.Component {
         </>
         <h2>Welcome</h2>
         <div className="app-title">
-          <button id="logout">LOGOUT</button>
+          <button id="logout" onClick={() => {
+              localStorage.removeItem("jwt");
+              this.props.history.push("/");
+            }}>LOGOUT</button>
           <img id="cart-logo" src="http://i68.tinypic.com/28iwxnc.png" alt="cart" />
 
         </div>
       </div>
 
     )
+
   }
 }
 
-export default Nav;
+export default withRouter(Nav);

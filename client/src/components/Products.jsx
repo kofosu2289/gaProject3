@@ -20,7 +20,9 @@ export default class Products extends React.Component {
   }
 
   render() {
+    debugger;
     return (
+
       <>
         <Nav />
         <div className="products">
@@ -36,6 +38,7 @@ export default class Products extends React.Component {
           ))}
         </div>
       </>
+
     )
   }
 }

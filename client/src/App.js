@@ -57,6 +57,8 @@ class App extends React.Component {
     const auth = 'Bearer ' + userData.token;
     localStorage.setItem('jwt', userData.token);
     localStorage.setItem('jwtToken', auth);
+    localStorage.setItem('userData', userData.user);
+    console.log(localStorage.userData);
   }
 
   handleRegisterSubmit = async (ev) => {
@@ -86,18 +88,22 @@ class App extends React.Component {
     const auth = 'Bearer ' + userData.token;
     localStorage.setItem('jwt', userData.token);
     localStorage.setItem('jwtToken', auth);
+    localStorage.setItem('userData', userData.user);
+
     this.props.history.push('/home');
   }
 
   componentDidMount = async () => {
     const categories = await fetchCategories();
     this.setState({
-      categories: categories.categories
+      categories: categories.categories,
     })
+    console.log(this.state.categories);
   }
 
 
   render() {
+    debugger;
     return (
       <div className="App">
         <h1>BENJAMINS</h1>
@@ -105,47 +111,67 @@ class App extends React.Component {
         <nav>
           <Link to="/"></Link>
           <Link to="/home"></Link>
-          {/* <Link to="/products/:id">Products</Link> */}
+         
         </nav>
+
         <main>
+          {localStorage.jwt ?
+            <>
+              <Route exact path="/home" render={() => (
+                <CreateCategory
+                  categories={this.state.categories}
+                />)} />
+              <Route path="/products/:id" render={(props) => {
+                const id = parseInt(props.match.params.id);
+                const category = this.state.categories.find(cat => cat.id === id);
 
-          <Route path="/" render={() =>
-            <Account
-              handleLoginSubmit={this.handleLoginSubmit}
-              registerForm={this.state.registerFormData}
-              loginForm={this.state.loginFormData}
-              handleSubmit={this.handleRegisterSubmit}
-              handleRegisterChange={this.handleRegisterChange}
-              handleLoginChange={this.handleLoginChange}
-              currentUser={this.state.currentUser}
-            />
-          } />
-          <Route exact path="/home" render={() => (
-            <CreateCategory
-              categories={this.state.categories}
-            />)} />
-          <Route path="/products/:id" render={(props) => {
-            const id = parseInt(props.match.params.id);
-            const category = this.state.categories.find(cat => cat.id === id);
+                return <Products
+                  id={id}
+                  category={category}
+                />
+              }
+              }
+              
 
-            return <Products
-              id={id}
-              category={category}
-            />
+
+              />
+               <Route path="/productcreate" render={() => <ProductCreate />} />
+            </>
+
+
+
+
+
+
+
+            :
+            <Route path="/" render={() =>
+              <Account
+                handleLoginSubmit={this.handleLoginSubmit}
+                registerForm={this.state.registerFormData}
+                loginForm={this.state.loginFormData}
+                handleSubmit={this.handleRegisterSubmit}
+                handleRegisterChange={this.handleRegisterChange}
+                handleLoginChange={this.handleLoginChange}
+                currentUser={this.state.currentUser}
+              />
+
+            } />
+
+
+
+
+
+  
+              } />
+             
+            
+
+
           }
-          }
-          // <CreateCategory id={props.match.params.category_id} />
-
-          />
-          <Route path="/productcreate" render={() => <ProductCreate />} />
-
-          {/* {this.state.currentUser !== null &&
-          <Nav loginFormData={this.state.loginFormData.username}/>
-          } */}
-          {/* <ProductCreate /> */}
-
 
         </main>
+
       </div>
     );
   }
