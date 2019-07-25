@@ -6,6 +6,7 @@ import ProductCreate from './components/ProductCreate';
 import { registerUser, loginUser, fetchCategories } from './services/api-helper';
 import CreateCategory from './components/CreateCategory';
 import Products from './components/Products'
+import Nav from './components/Nav'
 
 import './App.css';
 
@@ -94,28 +95,17 @@ class App extends React.Component {
     this.setState({
       categories: categories.categories
     })
+    console.log(this.state.categories);
   }
   render() {
     return (
       <div className="App">
-        <h1>Make it rain!</h1>
 
-        {/* //For Testing
-        <ProductCreate
-          categories={[{
-            id: 1,
-            name: "horses"
-          }, {
-            id: 2,
-            name: "kitchen sinks"
-          }
-          ]}
-        /> */}
-
+        <h1>BENJAMINS</h1>
         <nav>
           <Link to="/"></Link>
           <Link to="/home"></Link>
-          {/* <Link to="/products/:id">Products</Link> */}
+          <Link to="/products/:id">Products</Link>
         </nav>
         <main>
 
@@ -143,10 +133,14 @@ class App extends React.Component {
               category={category}
             />
           }
-          }
-          // <CreateCategory id={props.match.params.category_id} />
+        } />
+        <ProductCreate
+          categories={this.state.categories} />
+          {/* <CreateCategory id={props.match.params.category_id} />
 
-          />
+           {/* {this.state.currentUser !== null &&
+          // <Nav loginFormData={this.state.loginFormData.username}/>
+          // } */}
         </main>
       </div>
     );

@@ -14,8 +14,7 @@ class Account extends React.Component {
 
   render() {
     return (
-
-      <>
+      <div className="front-page">
         {!this.props.currentUser && (<div className="formz">
           <div className="login-reg-buttons">
             <button onClick={() => { this.setState({ login: false, loggedIn: true }) }}>Register</button>
@@ -80,13 +79,14 @@ class Account extends React.Component {
                   id="password"
                   onChange={this.props.handleLoginChange}
                 />
-                <button>Login</button>
+                {/* <button>Login</button> */}
+                <input type='submit' value="login" />
               </form>
             </div>
           }
 
         </div>)}
-      </>
+      </div>
     )
   }
 }
