@@ -1,6 +1,7 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
+
 import { withRouter } from 'react-router-dom'
+
 
 class Account extends React.Component {
   constructor(props) {

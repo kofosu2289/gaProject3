@@ -1,8 +1,8 @@
 import React from 'react';
-
 import {withRouter} from 'react-router-dom';
-import axios from 'axios';
 import {Link, Route} from 'react-router-dom';
+import axios from 'axios';
+
 import Products from './Products';
 import EditCategory from './EditCategory';
 import Nav from './Nav'
@@ -46,6 +46,7 @@ render(){
   }
 }
 export default withRouter(CreateCategory);
+
 
 
 

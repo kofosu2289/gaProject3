@@ -5,6 +5,10 @@ body {
    background-repeat: no-repeat; 
   background-size: 100%; 
 
+@import url('https://fonts.googleapis.com/css?family=Kadwa&display=swap');
+@font-face{
+  font-family:'Kadwa', serif;
+  src: url('https://fonts.googleapis.com/css?family=Kadwa&display=swap')
 }
 
 /* NAV Component */
@@ -26,7 +30,16 @@ body {
   height: 40px;
   width: auto;
   border-radius: 25px;
+
+
+
 }
+/* body{
+  background-image: url("https://images.unsplash.com/photo-1515180711443-f8685c6d6a74?ixlib=rb-1.2.1&auto=format&w=1050&q=80");
+  background-repeat: no-repeat;
+  background-size: cover;
+} */
+
 
 #cart-logo img {
   /* margin-bottom: 20px; */
@@ -114,7 +127,6 @@ h1{
 
 .login label{
   margin-left: 5vw;
-}
 
 .login h3{
   text-align: center;
