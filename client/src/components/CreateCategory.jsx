@@ -40,7 +40,7 @@ render(){
       ))}
       </div>
 
-      {/* <EditCategory /> */}
+      <EditCategory />
     </div>
     )
   }
