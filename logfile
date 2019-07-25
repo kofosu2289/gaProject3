@@ -1,0 +1,8 @@
+2019-07-23 11:12:03.607 EDT [6745] LOG:  listening on IPv6 address "::1", port 5432
+2019-07-23 11:12:03.607 EDT [6745] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2019-07-23 11:12:03.609 EDT [6745] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2019-07-23 11:12:03.667 EDT [6746] LOG:  database system was shut down at 2019-07-22 20:23:59 EDT
+2019-07-23 11:12:03.689 EDT [6745] LOG:  database system is ready to accept connections
+2019-07-23 11:12:37.794 EDT [6770] ERROR:  syntax error at or near "psql" at character 1
+2019-07-23 11:12:37.794 EDT [6770] STATEMENT:  psql -d benjamins_db
+	SELECT * FROM products;

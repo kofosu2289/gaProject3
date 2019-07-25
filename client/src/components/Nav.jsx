@@ -1,11 +1,10 @@
 import React from 'react';
 
-
 class Nav extends React.Component {
   constructor(props){
     super(props);
-
   }
+  
   render() {
     return (
       <div className="app-nav">
@@ -15,6 +14,7 @@ class Nav extends React.Component {
       <div className="app-title">
         <button id="logout">LOGOUT</button>
         <img id="cart-logo" src="http://i68.tinypic.com/28iwxnc.png" alt="cart" />
+
       </div>
       {/* <div className="searchbar">
         <input id="search"
@@ -24,7 +24,6 @@ class Nav extends React.Component {
         </input>
         </div> */}
         </div>
-
     )
   }
 }
