@@ -1,7 +1,11 @@
 import React from 'react';
 import './App.css';
-import RegisterForm from './components/RegisterForm';
+import Account from './components/RegisterForm';
 import { registerUser, loginUser } from './services/api-helper';
+import { Route, Link } from 'react-router-dom';
+import CreateCategory from './components/CreateCategory';
+import { withRouter } from 'react-router-dom';
+import ProductCreate from './components/ProductCreate';
 
 class App extends React.Component {
   constructor(props) {
@@ -46,7 +50,9 @@ class App extends React.Component {
     this.setState({
       currentUser: userData.user,
     });
+    const auth = 'Bearer ' + userData.token;
     localStorage.setItem('jwt', userData.token);
+    localStorage.setItem('jwtToken', auth);
   }
 
   handleRegisterSubmit = async (ev) => {
@@ -54,27 +60,62 @@ class App extends React.Component {
     await registerUser(this.state.registerFormData);
     this.handleLogin();
     this.setState({
-      registerForm: {
-        name: '',
+      registerFormData: {
+        username: '',
+        email: '',
         password: '',
       },
     });
+    this.props.history.push('/home');
+  }
+
+  handleLoginSubmit = async (ev) => {
+    ev.preventDefault();
+    const userData = await loginUser(this.state.loginFormData);
+    this.setState({
+      currentUser: userData.user,
+      loginFormData: {
+        username: '',
+        password: ''
+      }
+    })
+    const auth = 'Bearer ' + userData.token;
+    localStorage.setItem('jwt', userData.token);
+    localStorage.setItem('jwtToken', auth);
+    this.props.history.push('/home');
   }
 
   render() {
     return (
       <div className="App">
         <h1>Make it rain!</h1>
-        <RegisterForm 
+        <Link to="/"></Link>
+        <Route exact path="/" render={() =>
+          <Account
+            handleLoginSubmit={this.handleLoginSubmit}
             registerForm={this.state.registerFormData}
             loginForm={this.state.loginFormData}
             handleSubmit={this.handleRegisterSubmit}
             handleRegisterChange={this.handleRegisterChange}
             handleLoginChange={this.handleLoginChange}
           />
+        } />
+        <Link to="/home"></Link>
+        <Route path="/home" render={() => <CreateCategory />} />
+        {/* //For Testing
+        <ProductCreate
+          categories={[{
+            id: 1,
+            name: "horses"
+          }, {
+            id: 2,
+            name: "kitchen sinks"
+          }
+          ]}
+        /> */}
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);

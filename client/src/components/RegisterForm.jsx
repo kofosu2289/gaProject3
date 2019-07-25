@@ -1,4 +1,6 @@
 import React from 'react';
+
+
 class Account extends React.Component {
   constructor(props) {
     super(props);
@@ -10,68 +12,69 @@ class Account extends React.Component {
   render() {
     return (
       <div className="formz">
-        <button onClick={() => { this.setState({ login: false }) }}>Register</button>
-        <button onClick={() => this.setState({ login: true })}>Login</button>
 
         {this.state.login === false &&
           <div className="reg">
-            <h3>Register Form</h3>
+
             <form className="register-form" onSubmit={this.props.handleSubmit}>
-              <label
-                htmlFor="username">Username</label>
               <input
                 type="text"
                 name="username"
+                placeholder="USERNAME"
                 value={this.props.registerForm.username}
                 id="username"
                 onChange={this.props.handleRegisterChange} />
+              &nbsp;
 
-              <label
-                htmlFor="email">Email</label>
               <input
                 type="text"
                 name="email"
+                placeholder="EMAIL"
                 value={this.props.registerForm.email}
                 id="email"
                 onChange={this.props.handleRegisterChange} />
-              <label
-                htmlFor="password">Password</label>
+
               <input
                 type="password"
                 name="password"
+                placeholder="PASSWORD"
                 value={this.props.registerForm.password}
                 id="password"
                 onChange={this.props.handleRegisterChange} />
-              <input type="submit" value="Sign Up!" />
+              <input className="register-button" type="submit" value="Register!" />
+              <br></br>
+              <button onClick={() => { this.setState({ login: false }) }}>SIGN UP</button>
+              &nbsp; &nbsp;
+              <button onClick={() => this.setState({ login: true })}>LOGIN</button>
             </form>
           </div>
         }
 
         {this.state.login === true &&
           <div className="login">
-            <h3>Login</h3>
+            <h3>LOGIN</h3>
 
-            <form className="login-form">
-              <label
-                htmlFor="name">Username</label>
+            <form className="login-form" onSubmit={this.props.handleLoginSubmit}>
               <input
                 type="text"
                 name="username"
+                placeholder="USERNAME"
                 value={this.props.loginForm.username}
                 id="username"
                 onChange={this.props.handleLoginChange}
               />
-              <label
-                htmlFor="name">Password</label>
+
               <input
                 type="password"
                 name="password"
+                placeholder="PASSWORD"
                 value={this.props.loginForm.password}
                 id="psasword"
                 onChange={this.props.handleLoginChange}
               />
-              <button>Login</button>
+              <button>LOGIN</button>
             </form>
+
           </div>
         }
       </div>

@@ -1,32 +1,90 @@
+@import url('https://fonts.googleapis.com/css?family=Kadwa&display=swap');
+@font-face{
+  font-family:'Kadwa', serif;
+  src: url('https://fonts.googleapis.com/css?family=Kadwa&display=swap')
+}
 .App {
   text-align: center;
 }
 
-/* .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
-.App-link {
-  color: #61dafb;
+html{
+  background-image: url("https://images.unsplash.com/photo-1515180711443-f8685c6d6a74?ixlib=rb-1.2.1&auto=format&w=1050&q=80");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/* body{
+  background-image: url("https://images.unsplash.com/photo-1515180711443-f8685c6d6a74?ixlib=rb-1.2.1&auto=format&w=1050&q=80");
+  background-repeat: no-repeat;
+  background-size: cover;
 } */
 
+/* App.js  */
+
+/* CENTER FORM */
+div.App{
+  margin:0;
+  position: absolute;
+  top:50%;
+  left:50%;
+  margin-right: -50%;
+  justify-content: center;
+  transform: translate(-50%, -50%);
+  border-style: double;
+  border-width: thick;
+  background-color: white;
+  width: 50%;
+  height: 40%;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  font-family:'Kadwa', serif;
+}
+
+div.App h1{
+  font-size: 50px;
+  padding-top: 30px;
+}
+
+form.register-form{
+  padding-bottom: 45px;
+}
+
+
+/* FORM INPUT FIELD  */
+input#username{
+  /* height:25px; */
+  font-size: 18px;
+}
+
+input#email{
+  font-size: 18px;
+}
+
+input#password{
+  font-size: 18px;
+}
+
+input.register-button{
+  width:13em;
+  height: 2em;
+  font-size: 12px;
+}
+
+button{
+  width:10em;
+  height: 2em;
+  font-size: 16px;
+}
+img{
+  size: 100px;
+}
 .div .formz{
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction:column;
 }
 
 .reg .login{
