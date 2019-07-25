@@ -1,18 +1,38 @@
+/* NAV Component */
+
+body {
+   background-image: url('https://images.unsplash.com/photo-1515180711443-f8685c6d6a74?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80');
+   background-repeat: no-repeat; 
+  background-size: 100%; 
+
 @import url('https://fonts.googleapis.com/css?family=Kadwa&display=swap');
 @font-face{
   font-family:'Kadwa', serif;
   src: url('https://fonts.googleapis.com/css?family=Kadwa&display=swap')
 }
-.App {
-  text-align: center;
+
+/* NAV Component */
+}.app-nav{
+  background-color: black;
+
 }
+.app-nav h2{
+  text-align: left;
+  font-family: 'Rajdhani', sans-serif;
+  color: white;
+  font-size: 20px;
+  padding: 0;
+}
+#cart-logo {
+  border: 1px solid black;
+  float: right;
+  margin-right: 10px;
+  height: 40px;
+  width: auto;
+  border-radius: 25px;
 
 
 
-html{
-  background-image: url("https://images.unsplash.com/photo-1515180711443-f8685c6d6a74?ixlib=rb-1.2.1&auto=format&w=1050&q=80");
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 /* body{
   background-image: url("https://images.unsplash.com/photo-1515180711443-f8685c6d6a74?ixlib=rb-1.2.1&auto=format&w=1050&q=80");
@@ -20,81 +40,167 @@ html{
   background-size: cover;
 } */
 
-/* App.js  */
 
-/* CENTER FORM */
-div.App{
-  margin:0;
-  position: absolute;
-  top:50%;
-  left:50%;
-  margin-right: -50%;
-  justify-content: center;
-  transform: translate(-50%, -50%);
-  border-style: double;
-  border-width: thick;
-  background-color: white;
-  width: 50%;
-  height: 40%;
-  display:flex;
-  flex-direction: column;
-  align-items: center;
-  font-family:'Kadwa', serif;
+#cart-logo img {
+  /* margin-bottom: 20px; */
+  height: 20px;
+  width: auto;
 }
-
-div.App h1{
-  font-size: 50px;
-  padding-top: 30px;
+#logout{
+  justify-content: left;
+  height:20px;
 }
-
-form.register-form{
-  padding-bottom: 45px;
+#search{
+  bottom: 100px;
 }
 
 
-/* FORM INPUT FIELD  */
-input#username{
-  /* height:25px; */
+
+/* HEADER */
+h1{
+  color:white;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 70px;
+  text-align: center;
+
+}
+
+/* REGISTER/LOGIN FORM */
+/* register */
+.reg{
+  box-sizing: border-box;
+  margin-left: 500px;
+  margin-right: 500px;
+}
+
+.reg input{
+  display: block;
+  margin-left: 5vw;
+  padding: 5px;
+  width: 300px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
   font-size: 18px;
 }
 
-input#email{
+.reg label{
+  margin-left: 5vw;
+}
+
+.reg h3{
+  text-align: center;
+  color: white;
+}
+
+.reg form{
+  padding-bottom: 20px;
+  padding-top: 20px;
+  /* border: 1px solid black; */
+  border-radius: 30px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  background-color: rgba(184, 184, 184, 0.5);
+}
+
+/* login */
+.login{
+  box-sizing: border-box;
+  margin-left: 500px;
+  margin-right: 500px;
+
+}
+
+.login input{
+  display: block;
+  margin-left: 5vw;
+  padding: 5px;
+  width: 300px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
   font-size: 18px;
 }
 
-input#password{
-  font-size: 18px;
+.login label{
+  margin-left: 5vw;
+}
+.login h3{
+  text-align: center;
 }
 
-input.register-button{
-  width:13em;
-  height: 2em;
-  font-size: 12px;
+.login form{
+  padding-bottom: 20px;
+  padding-top: 20px;
+  border: 1px solid black;
+  background-color: lightblue;
 }
 
-button{
-  width:10em;
-  height: 2em;
-  font-size: 16px;
-}
-img{
-  size: 100px;
-}
-.div .formz{
+.login-reg-buttons {
+  /* display: inline-block; */
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex-direction:column;
 }
 
-.reg .login{
-  flex-direction: column;
+.login-reg-buttons button{
+  padding: 10px;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 15px;
+  margin-right: 3px;
+}
+
+.front-page h3{
+  color: white;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+ /* HOME */
+.cat-div{
+  display: grid;
+  grid-template-columns: 400px 400px;
+  margin-left: 43vh;
+}
+
+.print_cats{
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  justify-items: center;
 
 }
-div.reg{
-  display:flex;
-  justify-content: center;
-  align-items: center;
+.print_cats img{
+  height: 300px;
+  width: 300px;
+}
+
+/* PRODUCTS */
+.products{
+  /* text-align: center; */
+  display: grid;
+  grid-template-columns: 400px 400px;
+  margin-left: 43vh;
+}
+
+.one-product{
+  padding: 20px;
+  font-size: 18px;
+  text-align: center;
+  justify-items: center;
+}
+
+.products img{
+  /* height: 300px;
+  width: auto; */
+  height: 300px;
+  width: 300px;
 }
 
 @keyframes App-logo-spin {
