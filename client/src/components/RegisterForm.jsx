@@ -15,6 +15,7 @@ class Account extends React.Component {
   render() {
     return (
       <div className="front-page">
+        <h1>BENJAMINS</h1>
         {!this.props.currentUser && (<div className="formz">
           <div className="login-reg-buttons">
             <button onClick={() => { this.setState({ login: false, loggedIn: true }) }}>Register</button>

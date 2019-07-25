@@ -1,10 +1,10 @@
 import React from 'react';
 import axios from 'axios';
-
+import {withRouter} from 'react-router-dom'
 
 class EditCategory extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       categories: [],
       editingId: null,
@@ -100,8 +100,24 @@ class EditCategory extends React.Component {
 
     return (
       <div>
-      <h1>Category edit/update/create/delete</h1>
-      {this.state.editingId !== null && (
+      
+        <div className='catz'>
+        {this.state.categories.map(category => (
+          <div 
+          className="each-cat"
+          key={category.id} 
+          // onClick={()=>{
+          //   this.props.history.push(`/products/${category.id}`)
+          // }}
+          >
+            <h3>{category.name}</h3>
+            <img src={category.image_url} />
+          <button onClick={() => this.edit(category.id)}>Edit Category</button>
+          <button onClick={() => this.delete(category.id)}>Delete Category</button>
+          </div>
+        ))} </div>
+
+{this.state.editingId !== null && (
       <form onSubmit={this.handleUpdateSubmit}>
         <input
           type="text"
@@ -133,18 +149,12 @@ class EditCategory extends React.Component {
       <input type="submit" value="Create Category" />
       </form>
         )}
-        {this.state.categories.map(category => (
-          <div key={category.id}>
-            <button onClick={() => this.edit(category.id)}>Edit Category</button>
-            <button onClick={() => this.delete(category.id)}>Delete Category</button>
-          </div>
-        ))}
         </div>
             )
           }
         }
 
-export default EditCategory;
+export default withRouter(EditCategory);
                 
                 
                 
