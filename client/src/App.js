@@ -95,32 +95,17 @@ class App extends React.Component {
     this.setState({
       categories: categories.categories
     })
+    console.log(this.state.categories);
   }
   render() {
     return (
       <div className="App">
 
         <h1>BENJAMINS</h1>
-
-
-
-        {/* //For Testing
-        <ProductCreate
-          categories={[{
-            id: 1,
-            name: "horses"
-          }, {
-            id: 2,
-            name: "kitchen sinks"
-          }
-          ]}
-        /> */}
-
-
         <nav>
           <Link to="/"></Link>
           <Link to="/home"></Link>
-          {/* <Link to="/products/:id">Products</Link> */}
+          <Link to="/products/:id">Products</Link>
         </nav>
         <main>
 
@@ -148,13 +133,14 @@ class App extends React.Component {
               category={category}
             />
           }
-          }
-          // <CreateCategory id={props.match.params.category_id} />
+        } />
+        <ProductCreate
+          categories={this.state.categories} />
+          {/* <CreateCategory id={props.match.params.category_id} />
 
-          />
-          {/* {this.state.currentUser !== null &&
-          <Nav loginFormData={this.state.loginFormData.username}/>
-          } */}
+           {/* {this.state.currentUser !== null &&
+          // <Nav loginFormData={this.state.loginFormData.username}/>
+          // } */}
         </main>
       </div>
     );
