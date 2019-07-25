@@ -12,7 +12,7 @@ body {
 }
 
 /* NAV Component */
-.app-nav{
+}.app-nav{
   background-color: black;
 
 }
@@ -97,11 +97,12 @@ h1{
 .reg form{
   padding-bottom: 20px;
   padding-top: 20px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
+  border-radius: 30px;
   color: white;
   font-weight: bold;
   font-size: 20px;
-  /* background-color: indigo; */
+  background-color: rgba(184, 184, 184, 0.5);
 }
 
 /* login */
@@ -127,7 +128,6 @@ h1{
 .login label{
   margin-left: 5vw;
 }
-
 .login h3{
   text-align: center;
 }
