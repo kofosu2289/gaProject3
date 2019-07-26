@@ -1,6 +1,6 @@
 # Project 3: BENJAMIN$
 
-Click [here](benjamins.surge.sh) for a live demo!
+Click [here](http://benjamins.surge.sh) for a live demo!
 
 ### Table of Contents
   - [Project Description](#project-description)
