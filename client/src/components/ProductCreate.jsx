@@ -34,11 +34,13 @@ export default class ProductCreate extends React.Component {
 
 
   create = async () => {
+    debugger;
     const data = this.state.formData;
+    
     const category = this.props.categories.find(cat => cat.id === parseInt(data.category, 10));
    
 
-    const resp = await axios.post(`http://localhost:3001/products/category/${category.id}`, data);
+    const resp = await axios.post(`https://agile-falls-46666.herokuapp.com/products/category/${category.id}`, data);
 
     const products = resp.data.product;
     this.setState(prevState => ({
@@ -115,7 +117,7 @@ export default class ProductCreate extends React.Component {
     return (
 
       <div>
-        <Nav />
+        {/* <Nav /> */}
         <h3>ADD PRODUCT</h3>
 
         {this.state.editingId !== null && (
@@ -181,6 +183,12 @@ export default class ProductCreate extends React.Component {
               placeholder="PRODUCT PRICE"
               onChange={this.handleChange}
               value={this.state.formData.price} />
+            <select onChange ={this.handleChange} name ='category'>
+              {this.props.categories.map(cat => (
+              
+                <option value = {cat.id}>{cat.name}</option>
+              ))}
+            </select>
 
 
             <input type="submit" value=" CREATE PRODUCT" />
