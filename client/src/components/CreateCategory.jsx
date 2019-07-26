@@ -19,7 +19,6 @@ render(){
 
   return (
     <div className="createCat">
-      {/* <Nav />       */}
       <div className="cat-div">
       {this.props.categories.map((category)=> (
         <div key={category.id} className="print_cats" 

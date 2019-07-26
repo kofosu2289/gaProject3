@@ -48,7 +48,6 @@ export default class Account extends React.Component {
           </form>
         </div>
         </div>
-        {/* <Route exact path = '/register' component={Login}/> */}
         <Route path='/login' component={Login}/>
         </div>
     )

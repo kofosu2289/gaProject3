@@ -21,7 +21,6 @@ export default class Products extends React.Component {
   render() {
     return (
       <>
-        {/* <Nav /> */}
         <div className="products">
           {this.state.products.map(
             product =>

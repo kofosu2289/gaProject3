@@ -138,7 +138,6 @@ export default class ProductCreate extends React.Component {
   render() {
     return (
       <div>
-        {/* <Nav /> */}
         <h3>ADD PRODUCT</h3>
 
         {this.state.editingId !== null && (

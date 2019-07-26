@@ -144,7 +144,6 @@ class App extends React.Component {
             <Link to="/"></Link>
             <Link to="/home"></Link>
             <Link to="/products/:id"></Link>
-            {/* <Link to="/products">All Products</Link> */}
           </nav>
           <main>
             <Route exact path="/home" render={() => (

@@ -97,7 +97,6 @@ class Account extends React.Component {
                     id="password"
                     onChange={this.props.handleLoginChange}
                   />
-                  {/* <button>Login</button> */}
                   <input type="submit" value="login" />
                 </form>
               </div>
