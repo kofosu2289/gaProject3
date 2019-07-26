@@ -94,15 +94,16 @@ class App extends React.Component {
     this.setState({
       categories: categories.categories
     })
+    console.log(this.state.categories);
   }
   render() {
     return (
       <div className="App">
-
         <h1>BENJAMINS</h1>
         <nav>
           <Link to="/"></Link>
           <Link to="/home"></Link>
+          <Link to="/products/:id">Products</Link>
         </nav>
         <main>
 
@@ -121,6 +122,23 @@ class App extends React.Component {
             <CreateCategory
               categories={this.state.categories}
             />} />
+          <Route path="/products/:id" render={(props) => {
+            const id = parseInt(props.match.params.id);
+            const category = this.state.categories.find(cat => cat.id === id);
+
+            return <Products
+              id={id}
+              category={category}
+            />
+          }
+        } />
+        <ProductCreate
+          categories={this.state.categories} />
+          {/* <CreateCategory id={props.match.params.category_id} />
+
+           {/* {this.state.currentUser !== null &&
+          // <Nav loginFormData={this.state.loginFormData.username}/>
+          // } */}
         </main>
       </div>
     );

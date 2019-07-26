@@ -110,6 +110,7 @@ h1{
   font-weight: bold;
   font-size: 20px;
   background-color: rgba(184, 184, 184, 0.5);
+  width: 450px;
 }
 
 /* login */
@@ -201,6 +202,7 @@ h1{
   font-size: 18px;
   text-align: center;
   justify-items: center;
+  
 }
 
 .products img{
