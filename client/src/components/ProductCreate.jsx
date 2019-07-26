@@ -85,7 +85,7 @@ export default class ProductCreate extends React.Component {
         product => product.id !== parseInt(id)
       )
     }));
-    // console.log(res)
+   
   };
 
   update = async () => {
@@ -129,7 +129,6 @@ export default class ProductCreate extends React.Component {
 
   componentDidMount = async () => {
     this.fetchProducts();
-    // console.log(this.state.products)
     const user = await verifyToken();
     this.setState({
       currentUser: user
@@ -137,7 +136,6 @@ export default class ProductCreate extends React.Component {
   };
 
   render() {
-    // console.log(this.state);
     return (
       <div>
         {/* <Nav /> */}

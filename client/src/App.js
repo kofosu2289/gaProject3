@@ -51,7 +51,6 @@ class App extends React.Component {
 
   handleLogin = async () => {
     const userData = await loginUser(this.state.registerFormData);
-    console.log(userData);
     this.setState({
       currentUser: userData.user,
     });
@@ -59,7 +58,6 @@ class App extends React.Component {
     localStorage.setItem('jwt', userData.token);
     localStorage.setItem('jwtToken', auth);
     localStorage.setItem('userData', userData.user);
-    console.log(localStorage.userData);
   }
 
   handleRegisterSubmit = async (ev) => {
@@ -108,16 +106,13 @@ class App extends React.Component {
     this.setState({
       categories: categories.categories,
     })
-    console.log(this.state.categories);
 
     const user = await verifyToken();
-    console.log('------ ' + user);
     if (user) {
       this.setState({
         currentUser: user
       })
     }
-    console.log(this.state.currentUser)
   }
 
 

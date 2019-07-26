@@ -2,7 +2,6 @@ import axios from 'axios';
 
 const api = axios.create({
   baseURL: `https://agile-falls-46666.herokuapp.com`,
-  // baseURL: 'http://localhost:3001',
 });
 
 export const loginUser = async (loginData) => {
@@ -39,14 +38,10 @@ export const verifyToken = async () => {
           Authorization: `Bearer ${token}`
         }
       });
-      // storeToken(resp.data.user);
       storeToken(token);
-
-      console.log(resp.data.user);
       return resp.data.user;
     } catch (e) {
-      console.log(e.message);
-      console.log('invalid token');
+      return e.message;
     }
   }
 }

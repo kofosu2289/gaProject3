@@ -15,13 +15,6 @@ class CreateCategory extends React.Component {
     }
   }
 
-
-  // componentDidMount = async() => {
-  //   const cats = await fetchCategories();
-  //   console.log(cats.categories);
-  // }
-
-
 render(){
 
   return (

@@ -1,6 +1,11 @@
 const Router = require('express');
 const { User } = require('../models');
-const { hashPassword, genToken, checkPassword, restrict } = require('../services/auth');
+const {
+  hashPassword,
+  genToken,
+  checkPassword,
+  restrict,
+} = require('../services/auth');
 
 const userRouter = Router();
 
@@ -24,7 +29,6 @@ const authResponse = (user) => {
 
 userRouter.post('/register', async (req, res) => {
   try {
-    debugger;
     const hash = await hashPassword(req.body.password);
 
     const user = await User.create({
@@ -36,26 +40,21 @@ userRouter.post('/register', async (req, res) => {
     const respData = authResponse(user);
     res.json({ ...respData });
   } catch (e) {
-    console.log(e)
     res.status(500).send(e.message);
   }
 });
 
 userRouter.post('/login', async (req, res) => {
-  console.log(req.body.username);
   try {
     const user = await User.findOne({
       where: {
         username: req.body.username,
       },
     });
-  
     if (await checkPassword(req.body.password, user.pw_hash)) {
-      console.log('correct credentials')
       const respData = authResponse(user);
       res.json({ ...respData });
     } else {
-      console.log('incorrect credentials');
       res.status(401).send('Invalid credentials');
     }
   } catch (e) {

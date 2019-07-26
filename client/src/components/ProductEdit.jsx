@@ -64,7 +64,6 @@ export default class ProductEdit extends React.Component {
         product.id !== parseInt(id)
       ))
     }))
-    console.log(res)
   }
 
   update = async () => {
@@ -118,7 +117,7 @@ export default class ProductEdit extends React.Component {
 
 
   render() {
-    console.log(this.state);
+    
     return (
       <div>
         <h3>EDIT PRODUCT</h3>

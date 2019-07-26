@@ -13,7 +13,6 @@ export default class Products extends React.Component {
 
   componentDidMount = async () => {
     const products = await fetchProducts();
-    console.log(products);
     this.setState({
       products: products.products
     });

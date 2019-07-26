@@ -22,13 +22,11 @@ class EditCategory extends React.Component {
     this.setState({
       categories: resp.data.categories
     });
-    console.log(this.state.categories);
   };
 
   handleCreateSubmit = ev => {
     ev.preventDefault();
     this.create();
-    console.log(this.state.formData);
   };
 
   create = async () => {
@@ -69,7 +67,6 @@ class EditCategory extends React.Component {
         category => category.id !== parseInt(id)
       )
     }));
-    console.log(resp);
     this.props.history.push("/home");
   };
 

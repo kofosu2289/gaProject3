@@ -1,3 +1,5 @@
+# Project 3: BENJAMIN$
+
 ### Table of Contents
   - [Project Description](#project-description)
   - [Features List](#features-list)
@@ -9,6 +11,8 @@
 
 ### Project Description
 - An app geared towards high net worth individuals offering one of a kind luxury products, we will create an ecommerce platform that will allow a certain tier of the population to acquire the goods they need to showcase their superiority to the general population. Users will be able to search for and buy any product their minds can conceive of, from gold-leaf toilet paper (highly impractical) to a miniature giraffe (the definition of opulence, if I do say so myself), as well as view previously unheard - of ultra - lux items (read: saved from the pit of decadence that is the dark web), because we all know poor people's rules don't apply here...
+
+
   
 ##### Expected Challenges
 - As a group, we all agree that the authorization and authentication portion of this application will present the most challenges. We decide to use this project as a learning experience. The entire group will complete this portion of functionality together, allowing those with a better grasp to practice explaining the technique to other and those still having difficulties to be caught up to speed.

@@ -29,7 +29,9 @@ body {
   font-size: 20px;
   padding: 0;
 }
-
+.money {
+  color:#85bb65
+}
 #cart-logo {
   border: 1px solid black;
   float: right;
@@ -41,13 +43,6 @@ body {
 
 
 }
-
-/* body{
-  background-image: url("https://images.unsplash.com/photo-1515180711443-f8685c6d6a74?ixlib=rb-1.2.1&auto=format&w=1050&q=80");
-  background-repeat: no-repeat;
-  background-size: cover;
-} */
-
 
 #cart-logo img {
   /* margin-bottom: 20px; */
