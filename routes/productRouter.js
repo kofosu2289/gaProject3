@@ -1,5 +1,5 @@
 const Router = require('express');
-const { Product } = require('../models');
+const { Product, Category } = require('../models');
 
 const productRouter = Router();
 
@@ -16,12 +16,13 @@ productRouter.get('/:id', async (req, res) => {
 });
 
 // SHOW ALL PRODUCTS IN A CATEGORY
-productRouter.get('/:categoryId', async (req, res) => {
+productRouter.get('/category/:categoryId', async (req, res) => {
   const products = await Product.findAll({
     where: {
       category_id: req.params.categoryId,
     },
   });
+  res.json({ products });
 });
 
 // CREATE A PRODUCT
@@ -29,6 +30,13 @@ productRouter.post('/', async (req, res) => {
   const product = await Product.create(req.body);
   res.json({ product });
 });
+
+productRouter.post('/category/:categoryId', async (req, res) => {
+  const category = await Category.findByPk(req.params.categoryId);
+  const product = await Product.create(req.body);
+  product.setCategory(category);
+});
+
 
 // DELETE PRODUCTS BASED ON ID
 productRouter.delete('/:id', async (req, res) => {

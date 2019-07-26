@@ -1,10 +1,10 @@
 import React from 'react';
 import axios from 'axios';
-
+import { withRouter } from 'react-router-dom'
 
 class EditCategory extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       categories: [],
       editingId: null,
@@ -16,7 +16,7 @@ class EditCategory extends React.Component {
   }
 
   fetchCategories = async () => {
-    const resp = await axios.get('http://localhost:3001/categories');
+    const resp = await axios.get('https://agile-falls-46666.herokuapp.com/categories');
     this.setState({
       categories: resp.data.categories,
     });
@@ -31,7 +31,7 @@ class EditCategory extends React.Component {
 
   create = async () => {
     const data = this.state.formData;
-    const resp = await axios.post('http://localhost:3001/categories', data)
+    const resp = await axios.post('https://agile-falls-46666.herokuapp.com/categories', data)
     const categories = resp.data.categories;
     this.setState(prevState => ({
       categories: [...prevState.categories, categories],
@@ -54,7 +54,7 @@ class EditCategory extends React.Component {
   }
 
   delete = async (id) => {
-    const resp = await axios.delete(`http://localhost:3001/categories/${id}`)
+    const resp = await axios.delete(`https://agile-falls-46666.herokuapp.com/categories/${id}`)
     this.setState(prevState => ({
       categories: prevState.categories.filter((category) => (
         category.id !== parseInt(id)
@@ -65,7 +65,7 @@ class EditCategory extends React.Component {
 
   update = async () => {
     const data = this.state.formData;
-    const resp = await axios.put('http://localhost:3001/categories/' + this.state.editingId, data);
+    const resp = await axios.put('https://agile-falls-46666.herokuapp.com/categories/' + this.state.editingId, data);
     const category = resp.data;
     this.setState(prevState => ({
       categories: prevState.categories.map(t => (t.id === category.id ? category : t)),
@@ -91,7 +91,7 @@ class EditCategory extends React.Component {
     ev.preventDefault();
     this.update();
   }
-  
+
   componentDidMount() {
     this.fetchCategories();
   }
@@ -100,39 +100,45 @@ class EditCategory extends React.Component {
 
     return (
       <div>
-      <h1>Category edit/update/create/delete</h1>
-      {this.state.editingId !== null && (
-      <form onSubmit={this.handleUpdateSubmit}>
-        <input
-          type="text"
-          name="name"
-          onChange={this.handleChange}
-          value={this.state.formData.name} />
-          <input
-          type="text"
-          name="image_url"
-          onChange={this.handleChange}
-          value={this.state.formData.image_url} />
-        <input type="submit" value="Update Category"/>
-      </form>
-      )}
-    {this.state.editingId === null && (
-      <form onSubmit={this.handleCreateSubmit}>
-        <input
-          type="text"
-          name="name"
-          placeholder="category name"
-          onChange={this.handleChange}
-          value={this.state.formData.name} />
-        <input
-          type="text"
-          name="image_url"
-          placeholder="category URL"
-          onChange={this.handleChange}
-          value={this.state.formData.image_url} />
-      <input type="submit" value="Create Category" />
-      </form>
+
+        <div className='catz'>
+          {this.state.categories.map(category => (
+            <div
+              className="each-cat"
+              key={category.id}
+              onClick={() => {
+                this.props.history.push(`/products/${category.id}`)
+              }}
+            >
+              <h3>{category.name}</h3>
+              <img src={category.image_url} />
+              <button onClick={(e) => {
+                e.stopPropagation();
+                this.edit(category.id)
+              }}>Edit Category</button>
+              <button onClick={(e) => {
+                e.stopPropagation();
+                this.delete(category.id)
+              }}>Delete Category</button>
+            </div>
+          ))} </div>
+
+        {this.state.editingId !== null && (
+          <form onSubmit={this.handleUpdateSubmit}>
+            <input
+              type="text"
+              name="name"
+              onChange={this.handleChange}
+              value={this.state.formData.name} />
+            <input
+              type="text"
+              name="image_url"
+              onChange={this.handleChange}
+              value={this.state.formData.image_url} />
+            <input type="submit" value="Update Category" />
+          </form>
         )}
+<<<<<<< HEAD
         {this.state.categories.map(category => (
           <div key={category.id}>
          <p>{category.name}</p>
@@ -152,3 +158,29 @@ export default EditCategory;
                 
                 
  
+=======
+        {this.state.editingId === null && (
+          <form onSubmit={this.handleCreateSubmit}>
+            <input
+              type="text"
+              name="name"
+              placeholder="category name"
+              onChange={this.handleChange}
+              value={this.state.formData.name} />
+            <input
+              type="text"
+              name="image_url"
+              placeholder="category URL"
+              onChange={this.handleChange}
+              value={this.state.formData.image_url} />
+            <input type="submit" value="Create Category" />
+          </form>
+        )}
+      </div>
+    )
+  }
+}
+
+export default withRouter(EditCategory);
+
+>>>>>>> master

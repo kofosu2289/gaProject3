@@ -26,14 +26,19 @@ render(){
 
   return (
     <div className="createCat">
-      <Nav />      
+      {/* <Nav />       */}
       <div className="cat-div">
       {this.props.categories.map((category)=> (
         <div key={category.id} className="print_cats" 
         onClick={()=>{
-          this.props.history.push(`/products/${category.id}`)
+          this.props.history.push(`/products/category/${category.id}`)
         }}
         >
+<<<<<<< HEAD
+=======
+          <p>{category.name}</p>
+          <img src={category.image_url} alt text="cat_img" />
+>>>>>>> master
         </div>
       ))}
       <EditCategory />

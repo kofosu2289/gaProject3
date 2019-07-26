@@ -2,10 +2,12 @@ import React from 'react';
 import { Route, Link, Switch, withRouter } from 'react-router-dom';
 import Account from './components/RegisterForm';
 import ProductCreate from './components/ProductCreate';
-import { registerUser, loginUser, fetchCategories } from './services/api-helper';
-import CreateCategory from './components/CreateCategory';
-import Products from './components/Products'   
+import { registerUser, loginUser, fetchCategories, verifyToken } from './services/api-helper';
+import EditCategory from './components/EditCategory';
+import Products from './components/Products'
 import Nav from './components/Nav'
+
+
 import './App.css';
 import EditCategory from './components/EditCategory';
 // import Index from './components/Index';
@@ -57,6 +59,8 @@ class App extends React.Component {
     const auth = 'Bearer ' + userData.token;
     localStorage.setItem('jwt', userData.token);
     localStorage.setItem('jwtToken', auth);
+    localStorage.setItem('userData', userData.user);
+    console.log(localStorage.userData);
   }
 
   handleRegisterSubmit = async (ev) => {
@@ -86,27 +90,39 @@ class App extends React.Component {
     const auth = 'Bearer ' + userData.token;
     localStorage.setItem('jwt', userData.token);
     localStorage.setItem('jwtToken', auth);
+    localStorage.setItem('userData', userData.user);
+
     this.props.history.push('/home');
+  }
+
+  logout = () => {
+
+    localStorage.clear();
+    this.setState({
+      currentUser: null
+    })
+    this.props.history.push('/')
   }
 
   componentDidMount = async () => {
     const categories = await fetchCategories();
     this.setState({
-      categories: categories.categories
+      categories: categories.categories,
     })
     console.log(this.state.categories);
-  }
-  render() {
-    return (
-      <div className="App">
-        <h1>BENJAMINS</h1>
-        <nav>
-          <Link to="/"></Link>
-          <Link to="/home"></Link>
-          <Link to="/products/:id">Products</Link>
-        </nav>
-        <main>
 
+    const user = await verifyToken();
+    this.setState({
+      currentUser: user
+    })
+    console.log(this.state.currentUser)
+  }
+
+  render() {
+    let display
+    if (!this.state.currentUser) {
+      display =
+        <>
           <Route path="/" render={() =>
             <Account
               handleLoginSubmit={this.handleLoginSubmit}
@@ -118,28 +134,44 @@ class App extends React.Component {
               currentUser={this.state.currentUser}
             />
           } />
-          <Route exact path="/home" render={() => 
-            <CreateCategory
-              categories={this.state.categories}
-            />} />
-          <Route path="/products/:id" render={(props) => {
-            const id = parseInt(props.match.params.id);
-            const category = this.state.categories.find(cat => cat.id === id);
+        </>
+    }
+    else {
+      display =
+        <>
+          <Link className="title" to="/home"><h1>BENJAMINS</h1></Link>
+          <Nav />
+          <button onClick={this.logout}>Logout</button>
+          <nav>
+            <Link to="/"></Link>
+            <Link to="/home"></Link>
+            <Link to="/products/:id"></Link>
+            {/* <Link to="/products">All Products</Link> */}
+          </nav>
+          <main>
+            <Route exact path="/home" render={() => (
+              <EditCategory
+                categories={this.state.categories}
+              />)} />
+            <Route path="/products/:id" render={(props) => {
+              const id = parseInt(props.match.params.id);
+              const category = this.state.categories.find(cat => cat.id === id);
 
-            return <Products
-              id={id}
-              category={category}
-            />
-          }
-        } />
-        <ProductCreate
-          categories={this.state.categories} />
-          {/* <CreateCategory id={props.match.params.category_id} />
-
-           {/* {this.state.currentUser !== null &&
-          // <Nav loginFormData={this.state.loginFormData.username}/>
-          // } */}
-        </main>
+              return <Products
+                id={id}
+                category={category}
+              />
+            }
+            } />
+            <Route exact path="/products" render={() => (
+              <ProductCreate
+                categories={this.state.categories} />)} />
+          </main>
+        </>
+    }
+    return (
+      <div className="App">
+        {display}
       </div>
     );
   }

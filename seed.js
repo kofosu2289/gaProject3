@@ -3,13 +3,13 @@ const { Product, Category, User } = require('./models');
 const main = async() => {
     const user = await User.findOne({
         where: {
-            id: 1
+        id: 1,
         }
     });
 
-    await Category.destroy({
-        where:{}
-    });
+    // await Category.destroy({
+    //     where:{}
+    // });
 
     // CATEGORIES
     // await Category.destroy({
@@ -112,7 +112,7 @@ const main = async() => {
         image_url: 'https://static2.therichestimages.com/wordpress/wp-content/uploads/2018/07/Tibetan-Mastiffs.jpg?q=50&fit=crop&w=738',
         price: 582000
     })
-
+    
     // product.setCategory(category)
     // product.setUser(user)
 

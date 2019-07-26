@@ -18,7 +18,7 @@ export default class ProductEdit extends React.Component {
   }
 
   fetchProducts = async () => {
-    const resp = await axios.get('http://localhost:3001/products');
+    const resp = await axios.get('https://agile-falls-46666.herokuapp.com/products');
     this.setState({
       product: resp.data.product,
     });
