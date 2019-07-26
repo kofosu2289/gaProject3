@@ -58,6 +58,8 @@ class App extends React.Component {
     const auth = 'Bearer ' + userData.token;
     localStorage.setItem('jwt', userData.token);
     localStorage.setItem('jwtToken', auth);
+    localStorage.setItem('userData', userData.user);
+    console.log(localStorage.userData);
   }
 
   handleRegisterSubmit = async (ev) => {
@@ -87,6 +89,8 @@ class App extends React.Component {
     const auth = 'Bearer ' + userData.token;
     localStorage.setItem('jwt', userData.token);
     localStorage.setItem('jwtToken', auth);
+    localStorage.setItem('userData', userData.user);
+
     this.props.history.push('/home');
   }
 
@@ -102,7 +106,7 @@ class App extends React.Component {
   componentDidMount = async () => {
     const categories = await fetchCategories();
     this.setState({
-      categories: categories.categories
+      categories: categories.categories,
     })
     console.log(this.state.categories);
 
@@ -112,6 +116,7 @@ class App extends React.Component {
     })
     console.log(this.state.currentUser)
   }
+
 
   render() {
     let display

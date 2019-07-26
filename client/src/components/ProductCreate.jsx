@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import CreateCategory from './CreateCategory';
+import Nav from './Nav';
 
 
 export default class ProductCreate extends React.Component {
@@ -20,11 +20,10 @@ export default class ProductCreate extends React.Component {
   }
 
   fetchProducts = async () => {
-    const resp = await axios.get('http://localhost:3001/products');
+    const resp = await axios.get('https://agile-falls-46666.herokuapp.com/products');
     this.setState({
       products: resp.data.products,
     });
-    // debugger;
   }
 
 
@@ -36,13 +35,11 @@ export default class ProductCreate extends React.Component {
 
   create = async () => {
     const data = this.state.formData;
-    console.log(data)
-    console.log(this.props.categories);
     const category = this.props.categories.find(cat => cat.id === parseInt(data.category, 10));
-    
-    console.log('------- ' + category);
+   
 
     const resp = await axios.post(`http://localhost:3001/products/category/${category.id}`, data);
+
     const products = resp.data.product;
     this.setState(prevState => ({
       products: [...prevState.products, products],
@@ -68,18 +65,18 @@ export default class ProductCreate extends React.Component {
   }
 
   delete = async (id) => {
-    const res = await axios.delete(`http://localhost:3001/products/${id}`)
+    const res = await axios.delete(`https://agile-falls-46666.herokuapp.com/products/${id}`)
     this.setState(prevState => ({
       products: prevState.products.filter((product) => (
         product.id !== parseInt(id)
       ))
     }))
-    console.log(res)
+    // console.log(res)
   }
 
   update = async () => {
     const data = this.state.formData;
-    const resp = await axios.put('http://localhost:3001/products/' + this.state.editingId, data);
+    const resp = await axios.put('https://agile-falls-46666.herokuapp.com/products/' + this.state.editingId, data);
     const product = resp.data;
     this.setState(prevState => ({
       products: prevState.products.map(t => (t.id === product.id ? product : t)),
@@ -94,7 +91,6 @@ export default class ProductCreate extends React.Component {
   }
 
   handleChange = (ev) => {
-    // debugger;
     const { target: { name, value } } = ev;
     this.setState(prevState => ({
       formData: {
@@ -111,14 +107,17 @@ export default class ProductCreate extends React.Component {
 
   componentDidMount() {
     this.fetchProducts();
-    console.log(this.state.products)
+    // console.log(this.state.products)
   }
 
   render() {
-    console.log(this.state);
+    // console.log(this.state);
     return (
+
       <div>
+        <Nav />
         <h3>ADD PRODUCT</h3>
+
         {this.state.editingId !== null && (
           <form onSubmit={this.handleUpdateSubmit}>
             <input
@@ -182,14 +181,7 @@ export default class ProductCreate extends React.Component {
               placeholder="PRODUCT PRICE"
               onChange={this.handleChange}
               value={this.state.formData.price} />
-            <select name="category" onChange={this.handleChange}>
-              <option> -- </option>
-              {
-                this.props.categories.map((cat) => (
-                  <option key={cat.id} value={cat.id}>{cat.name}</option>
-                ))
-              }
-            </select>
+
 
             <input type="submit" value=" CREATE PRODUCT" />
           </form>

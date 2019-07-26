@@ -31,11 +31,11 @@ render(){
       {this.props.categories.map((category)=> (
         <div key={category.id} className="print_cats" 
         onClick={()=>{
-          this.props.history.push(`/products/${category.id}`)
+          this.props.history.push(`/products/category/${category.id}`)
         }}
         >
           <p>{category.name}</p>
-          <img src={category.image_url} alt text="cat_img"/>
+          <img src={category.image_url} alt text="cat_img" />
         </div>
       ))}
       </div>

@@ -16,12 +16,13 @@ productRouter.get('/:id', async (req, res) => {
 });
 
 // SHOW ALL PRODUCTS IN A CATEGORY
-productRouter.get('/:categoryId', async (req, res) => {
+productRouter.get('/category/:categoryId', async (req, res) => {
   const products = await Product.findAll({
     where: {
       category_id: req.params.categoryId,
     },
   });
+  res.json({ products });
 });
 
 // CREATE A PRODUCT
@@ -34,7 +35,8 @@ productRouter.post('/category/:categoryId', async (req, res) => {
   const category = await Category.findByPk(req.params.categoryId);
   const product = await Product.create(req.body);
   product.setCategory(category);
-})
+});
+
 
 // DELETE PRODUCTS BASED ON ID
 productRouter.delete('/:id', async (req, res) => {
