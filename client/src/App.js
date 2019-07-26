@@ -111,9 +111,12 @@ class App extends React.Component {
     console.log(this.state.categories);
 
     const user = await verifyToken();
-    this.setState({
-      currentUser: user
-    })
+    console.log('------ ' + user);
+    if (user) {
+      this.setState({
+        currentUser: user
+      })
+    }
     console.log(this.state.currentUser)
   }
 

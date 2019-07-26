@@ -64,7 +64,7 @@ userRouter.post('/login', async (req, res) => {
 });
 
 userRouter.get('/verify', restrict, (req, res) => {
-  res.json({ user: res.locals.user})
-})
+  res.json({ user: res.locals.user });
+});
 
 module.exports = userRouter;

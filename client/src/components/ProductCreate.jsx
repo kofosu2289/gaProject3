@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+
+import { verifyToken } from '../services/api-helper';
 import Nav from './Nav';
 
 
@@ -107,9 +109,14 @@ export default class ProductCreate extends React.Component {
     this.update();
   }
 
-  componentDidMount() {
+  componentDidMount = async () => {
+    debugger;
     this.fetchProducts();
     // console.log(this.state.products)
+    const user = await verifyToken();
+    this.setState({
+      currentUser: user
+    })
   }
 
   render() {

@@ -20,4 +20,4 @@ app.use('/categories', categoryRouter);
 app.use('/transaction', transactionRouter);
 
 
-app.listen(PORT, () => console.log('up and running'));
+app.listen(PORT, () => console.log('up and running ' + PORT));
