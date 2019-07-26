@@ -36,9 +36,13 @@ export default class ProductCreate extends React.Component {
 
   create = async () => {
     const data = this.state.formData;
-    const category = this.props.categories.find(cat => cat.id === data.category);
+    console.log(data)
+    console.log(this.props.categories);
+    const category = this.props.categories.find(cat => cat.id === parseInt(data.category, 10));
+    
+    console.log('------- ' + category);
 
-    const resp = await axios.post(`http://localhost:3001/categories/${category.id}/products`, data);
+    const resp = await axios.post(`http://localhost:3001/products/category/${category.id}`, data);
     const products = resp.data.product;
     this.setState(prevState => ({
       products: [...prevState.products, products],

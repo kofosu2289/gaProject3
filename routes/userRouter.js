@@ -1,6 +1,6 @@
 const Router = require('express');
 const { User } = require('../models');
-const { hashPassword, genToken, checkPassword } = require('../services/auth');
+const { hashPassword, genToken, checkPassword, restrict } = require('../services/auth');
 
 const userRouter = Router();
 
@@ -40,22 +40,29 @@ userRouter.post('/register', async (req, res) => {
 });
 
 userRouter.post('/login', async (req, res) => {
+  console.log(req.body.username);
   try {
     const user = await User.findOne({
       where: {
         username: req.body.username,
       },
     });
-
+  
     if (await checkPassword(req.body.password, user.pw_hash)) {
+      console.log('correct credentials')
       const respData = authResponse(user);
       res.json({ ...respData });
     } else {
+      console.log('incorrect credentials');
       res.status(401).send('Invalid credentials');
     }
   } catch (e) {
     res.status(500).send(e.message);
   }
 });
+
+userRouter.get('/verify', restrict, (req, res) => {
+  res.json({ user: res.locals.user})
+})
 
 module.exports = userRouter;
