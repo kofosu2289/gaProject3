@@ -69,7 +69,7 @@ body {
 
 /* HEADER */
 
-h1{
+h1 {
 
   color: white;
   font-family: 'Rajdhani', sans-serif;
@@ -124,7 +124,7 @@ h1{
 
 
 
-.login{
+.login {
 
   box-sizing: border-box;
   margin-left: 500px;
@@ -162,7 +162,8 @@ h1{
   font-weight: bold;
   font-size: 20px;
   background-color: rgba(184, 184, 184, 0.5);
-  width: 450px;}
+  width: 450px;
+}
 
 
 .login-reg-buttons {
@@ -184,18 +185,18 @@ h1{
 
 .front-page {
   background-image: url('https://images.unsplash.com/photo-1515180711443-f8685c6d6a74?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80');
-  background-repeat: no-repeat; 
- background-size: 100%; 
- height: 100vh;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 100vh;
 }
 
-.front-page h1{
+.front-page h1 {
   margin-top: 0;
   padding-top: 50px;
   color: white;
 }
 
-.front-page h3{
+.front-page h3 {
 
   color: white;
   font-family: 'Rajdhani', sans-serif;
@@ -203,12 +204,12 @@ h1{
   font-weight: bold;
 }
 
-.title h1{
+.title h1 {
   color: black;
 }
 
- /* HOME */
-.catz{
+/* HOME */
+.catz {
 
 
   display: grid;
@@ -216,8 +217,11 @@ h1{
   margin-left: 43vh;
 }
 
+img:hover {
+  cursor: pointer;
+}
 
-.each-cat{
+.each-cat {
 
   padding: 20px;
   font-size: 30px;
@@ -226,10 +230,28 @@ h1{
 
 }
 
-.each-cat img{
+.each-cat img {
 
 
   height: 300px;
+  width: 300px;
+}
+
+main input {
+  width: 400px;
+  height: 30px;
+  background-color: lightgrey;
+  font-size: 18px;
+}
+
+main input[type='submit'] {
+  width: 200px;
+  background-color: white;
+  font-weight: bold;
+}
+
+select {
+  height: 30px;
   width: 300px;
 }
 
@@ -246,7 +268,7 @@ h1{
   font-size: 18px;
   text-align: center;
   justify-items: center;
-  
+
 }
 
 .products img {
@@ -256,74 +278,102 @@ h1{
   width: 300px;
 }
 
+/* ALL PRODUCTSSS */
+.all-products {
+  display: grid;
+  grid-template-columns: 400px 400px;
+  margin-left: 43vh;
+}
+
+.all-prods {
+  padding: 20px;
+  font-size: 18px;
+  text-align: center;
+  justify-items: center;
+}
+
+.all-prods img {
+  height: 300px;
+  width: 300px;
+}
+
 /* NAV */
 .app-nav {
   /* margin:0; */
   background-color: black;
   list-style: none;
-  height:60px;
-  border-radius:25px;
+  height: 60px;
+  border-radius: 10px;
   /* display: inline-flexbox; */
   margin-left: 300px;
   margin-right: 300px;
 }
+
 /* .app-nav:hover{
   background:white;
 } */
 
-a.prods{
+a.prods {
   justify-content: center;
+  text-decoration: none;
+  color: white;
 }
-​
-.app-nav h2 {
+
+a:hover {
+  cursor: pointer;
+}
+
+​ .app-nav h2 {
   text-align: left;
   font-family: 'Rajdhani', sans-serif;
   color: white;
   font-size: 18px;
 }
-​
-.app-nav a{
+
+​ .app-nav a {
   text-align: center;
-  top:200px;
+  top: 200px;
   color: white;
 }
-​
-.app-nav li{
+
+​ .app-nav li {
   list-style: none;
   text-align: center;
   display: inline-block;
-  padding:5px 160px;
+  padding: 5px 160px;
   height: -100px;
 }
-​
-.app-title{
-bottom: 200px;
-width:50%;
+
+​ .app-title {
+  bottom: 200px;
+  width: 50%;
 }
+
 ​
+
 /* NAV LOGOUT BUTTON */
-button#logout{
-text-align: center;
-display: inline-block;
+button#logout {
+  text-align: center;
+  display: inline-block;
 }
-​
-#cart-logo {
+
+​ #cart-logo {
   border: 1px solid black;
   float: right;
   margin-right: 10px;
   height: 40px;
   width: auto;
   border-radius: 25px;
-  position:relative;
+  position: relative;
 }
-​
-#cart-logo img {
+
+​ #cart-logo img {
   /* margin-bottom: 20px; */
   height: 20px;
   width: auto;
 }
-​
-#logout {
+
+​ #logout {
   border: 1px solid black;
   justify-content: left;
   height: 20px;

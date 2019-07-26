@@ -20,7 +20,6 @@ export default class Products extends React.Component {
   };
 
   render() {
-    debugger;
     return (
       <>
         {/* <Nav /> */}
