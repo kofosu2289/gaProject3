@@ -137,7 +137,7 @@ class App extends React.Component {
     else {
       display =
         <>
-          <Link className="title" to="/home"><h1>BENJAMINS</h1></Link>
+          <Link className="title" to="/home"><h1 className = 'money'>BENJAMINS</h1></Link>
           <Nav />
           <button onClick={this.logout}>Logout</button>
           <nav>

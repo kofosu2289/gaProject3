@@ -15,7 +15,7 @@ class Account extends React.Component {
     return (
       <div className="front-page">
         <h1>
-          BENJAMIN<span className="money">$</span>
+          BENJAMIN<span>$</span>
         </h1>
         {!this.props.currentUser && (
           <div className="formz">
