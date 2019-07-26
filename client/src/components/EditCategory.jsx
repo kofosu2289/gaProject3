@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import {withRouter} from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
 class EditCategory extends React.Component {
   constructor(props) {
@@ -100,63 +100,65 @@ class EditCategory extends React.Component {
 
     return (
       <div>
-\
-      
-        <div className='catz'>
-        {this.state.categories.map(category => (
-          <div 
-          className="each-cat"
-          key={category.id} 
-          // onClick={()=>{
-          //   this.props.history.push(`/products/${category.id}`)
-          // }}
-          >
-            <h3>{category.name}</h3>
-            <img src={category.image_url} />
-          <button onClick={() => this.edit(category.id)}>Edit Category</button>
-          <button onClick={() => this.delete(category.id)}>Delete Category</button>
-          </div>
-        ))} </div>
 
-{this.state.editingId !== null && (
-      <form onSubmit={this.handleUpdateSubmit}>
-        <input
-          type="text"
-          name="name"
-          onChange={this.handleChange}
-          value={this.state.formData.name} />
-          <input
-          type="text"
-          name="image_url"
-          onChange={this.handleChange}
-          value={this.state.formData.image_url} />
-        <input type="submit" value="Update Category"/>
-      </form>
-      )}
-    {this.state.editingId === null && (
-      <form onSubmit={this.handleCreateSubmit}>
-        <input
-          type="text"
-          name="name"
-          placeholder="category name"
-          onChange={this.handleChange}
-          value={this.state.formData.name} />
-        <input
-          type="text"
-          name="image_url"
-          placeholder="category URL"
-          onChange={this.handleChange}
-          value={this.state.formData.image_url} />
-      <input type="submit" value="Create Category" />
-      </form>
+        <div className='catz'>
+          {this.state.categories.map(category => (
+            <div
+              className="each-cat"
+              key={category.id}
+              onClick={() => {
+                this.props.history.push(`/products/${category.id}`)
+              }}
+            >
+              <h3>{category.name}</h3>
+              <img src={category.image_url} />
+              <button onClick={(e) => {
+                e.stopPropagation();
+                this.edit(category.id)
+              }}>Edit Category</button>
+              <button onClick={(e) => {
+                e.stopPropagation();
+                this.delete(category.id)
+              }}>Delete Category</button>
+            </div>
+          ))} </div>
+
+        {this.state.editingId !== null && (
+          <form onSubmit={this.handleUpdateSubmit}>
+            <input
+              type="text"
+              name="name"
+              onChange={this.handleChange}
+              value={this.state.formData.name} />
+            <input
+              type="text"
+              name="image_url"
+              onChange={this.handleChange}
+              value={this.state.formData.image_url} />
+            <input type="submit" value="Update Category" />
+          </form>
         )}
-        </div>
-            )
-          }
-        }
+        {this.state.editingId === null && (
+          <form onSubmit={this.handleCreateSubmit}>
+            <input
+              type="text"
+              name="name"
+              placeholder="category name"
+              onChange={this.handleChange}
+              value={this.state.formData.name} />
+            <input
+              type="text"
+              name="image_url"
+              placeholder="category URL"
+              onChange={this.handleChange}
+              value={this.state.formData.image_url} />
+            <input type="submit" value="Create Category" />
+          </form>
+        )}
+      </div>
+    )
+  }
+}
 
 export default withRouter(EditCategory);
-                
-                
-                
- 
+

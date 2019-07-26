@@ -68,7 +68,9 @@ body {
 
 
 /* HEADER */
-h1 {
+
+h1{
+
   color: white;
   font-family: 'Rajdhani', sans-serif;
   font-size: 70px;
@@ -187,6 +189,12 @@ h1 {
  height: 100vh;
 }
 
+.front-page h1{
+  margin-top: 0;
+  padding-top: 50px;
+  color: white;
+}
+
 .front-page h3{
 
   color: white;
@@ -195,11 +203,9 @@ h1 {
   font-weight: bold;
 }
 
-
-
-
-
-
+.title h1{
+  color: black;
+}
 
  /* HOME */
 .catz{
@@ -248,6 +254,79 @@ h1 {
   width: auto; */
   height: 300px;
   width: 300px;
+}
+
+/* NAV */
+.app-nav {
+  /* margin:0; */
+  background-color: black;
+  list-style: none;
+  height:60px;
+  border-radius:25px;
+  /* display: inline-flexbox; */
+  margin-left: 300px;
+  margin-right: 300px;
+}
+/* .app-nav:hover{
+  background:white;
+} */
+
+a.prods{
+  justify-content: center;
+}
+​
+.app-nav h2 {
+  text-align: left;
+  font-family: 'Rajdhani', sans-serif;
+  color: white;
+  font-size: 18px;
+}
+​
+.app-nav a{
+  text-align: center;
+  top:200px;
+  color: white;
+}
+​
+.app-nav li{
+  list-style: none;
+  text-align: center;
+  display: inline-block;
+  padding:5px 160px;
+  height: -100px;
+}
+​
+.app-title{
+bottom: 200px;
+width:50%;
+}
+​
+/* NAV LOGOUT BUTTON */
+button#logout{
+text-align: center;
+display: inline-block;
+}
+​
+#cart-logo {
+  border: 1px solid black;
+  float: right;
+  margin-right: 10px;
+  height: 40px;
+  width: auto;
+  border-radius: 25px;
+  position:relative;
+}
+​
+#cart-logo img {
+  /* margin-bottom: 20px; */
+  height: 20px;
+  width: auto;
+}
+​
+#logout {
+  border: 1px solid black;
+  justify-content: left;
+  height: 20px;
 }
 
 @keyframes App-logo-spin {

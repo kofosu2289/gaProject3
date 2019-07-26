@@ -35,14 +35,12 @@ export default class ProductCreate extends React.Component {
 
   create = async () => {
     const data = this.state.formData;
-    console.log(data);
     const category = this.props.categories.find(cat => cat.id === parseInt(data.category, 10));
-    console.log(this.props.categories);
-    console.log(category);
+   
 
-    const resp = await axios.post(`https://agile-falls-46666.herokuapp.com/products/category/${category.id}`, data);
+    const resp = await axios.post(`http://localhost:3001/products/category/${category.id}`, data);
+
     const products = resp.data.product;
-    console.log(products);
     this.setState(prevState => ({
       products: [...prevState.products, products],
       formData: {

@@ -34,9 +34,9 @@ productRouter.post('/', async (req, res) => {
 productRouter.post('/category/:categoryId', async (req, res) => {
   const category = await Category.findByPk(req.params.categoryId);
   const product = await Product.create(req.body);
-
   product.setCategory(category);
 });
+
 
 // DELETE PRODUCTS BASED ON ID
 productRouter.delete('/:id', async (req, res) => {
